@@ -1,0 +1,16 @@
+.medium, div.medium {
+    font-size: 55px;
+}
+
+.parent > p{
+    color: brown;
+}
+
+.good {
+    color: green;
+}
+
+h1, h2, h4 {
+    font-size: 65px;
+}
+

@@ -1,0 +1,20 @@
+body {
+    background-color: #B4F6C9
+}
+.header {
+    background-color: rgb(221, 119, 119);
+}
+.ski-gear {
+    background-color: rgba(60, 200, 123, 0.4);
+    font-family: 'Times New Roman', Times, serif;
+}
+.headgear {
+    background-color: #A8D;
+}
+.eyepro {
+    background-color: #BFC;
+}
+.feet {
+    background-color: #FFF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

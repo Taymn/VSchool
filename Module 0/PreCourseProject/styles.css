@@ -1,0 +1,38 @@
+html, body {
+    margin: 100px;
+    padding: 0px;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+}
+
+body {
+    background-image: url(https://www.shutterstock.com/image-vector/similar-world-map-isolated-on-260nw-400503298.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header {
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 100px;
+}
+
+.main {
+    visibility: hidden;
+    font-size:x-large;
+    font-family: 'Courier New', Courier, monospace;
+    border:5px solid  black;
+    padding: 10px;
+    margin: 100px;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    margin: 100px;
+}
+
+button {
+    background-color: rgb(125, 125, 240);
+    font-size: large;
+}

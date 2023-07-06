@@ -1,0 +1,33 @@
+/* .dark-coffee {
+    color: brown;
+}
+.medium-coffee {
+    font-size: 55px;
+}
+.light-coffee {
+    color: gray;
+} */
+
+
+
+/* h1, h2 {
+    font-size: 60px;
+} */
+
+
+
+/* div .coffee {
+    background-color: green;
+} */
+
+
+/* 
+div.coffee{
+    background-color: green;
+} */
+
+
+
+.parent > p {
+    background-color: green;
+}
