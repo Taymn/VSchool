@@ -18,9 +18,13 @@ text.addEventListener('mouseup', function handleOnMouseUp() {
 text.addEventListener('dblclick', function handleOnDblClick() {
     text.style.backgroundColor = 'Green';
 });
-text.addEventListener('wheel', function handleOnMouseWheel() {
+document.addEventListener('wheel', function handleOnMouseWheel() {
     text.style.backgroundColor = 'Orange';
 });
+document.addEventListener('wheel', function handleDetectTrackPad() {
+    text.style.backgroundColor = 'Orange';
+});
+
 
 
 text.addEventListener('keydown', function handleOnKeyPress(e) { 
