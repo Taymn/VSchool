@@ -9,19 +9,29 @@ text.addEventListener('mouseover', function handleMouseOver() {
 text.addEventListener('mouseout', function handleMouseOut() {
     text.style.backgroundColor = 'White';
 });
-text.addEventListener('onmousedown', function handleOnMouseDown() {
+text.addEventListener('mousedown', function handleOnMouseDown() {
     text.style.backgroundColor = 'Red';
 });
-text.addEventListener('onmouseup', function handleOnMouseUp() {
+text.addEventListener('mouseup', function handleOnMouseUp() {
     text.style.backgroundColor = 'Yellow';
 });
-text.addEventListener('ondblclick', function handleondblclick() {
+text.addEventListener('dblclick', function handleOnDblClick() {
     text.style.backgroundColor = 'Green';
 });
-text.addEventListener('onmousewheel', function handleOnMouseWheel() {
+text.addEventListener('wheel', function handleOnMouseWheel() {
     text.style.backgroundColor = 'Orange';
 });
 
-text.addEventListener('press B', function handleOnKeyPress() {
-text.style.backgroundColor = 'Blue';
-});
+
+text.addEventListener('keydown', function handleOnKeyPress(e) { 
+    if (e.key === "b"){
+    text.style.backgroundColor = 'Blue';
+} else if (e.key === "r"){
+    text.style.backgroundColor = 'Red';
+} else if (e.key === "y"){
+    text.style.backgroundColor = 'Yellow';
+} else if (e.key === "g"){
+    text.style.backgroundColor = 'Green';
+} else if (e.key === "o"){
+    text.style.backgroundColor = 'Orange';
+}});
