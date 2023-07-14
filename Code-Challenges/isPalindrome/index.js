@@ -30,3 +30,12 @@ function isPalindrome(str) {
     var reverseStr = lowRegStr.split('').reverse().join(''); 
     return reverseStr === lowRegStr;
   }*/
+
+  function isPalindrome(str) {
+    var re = /[\W_]/g;
+    var lowRegStr = str.toLowerCase().replace(re, '');
+    var reverseStr = lowRegStr.split('').reverse().join(''); 
+    return reverseStr === lowRegStr;
+  }
+    console.log(isPalindrome("racecar"));
+    console.log(isPalindrome("hello"));
