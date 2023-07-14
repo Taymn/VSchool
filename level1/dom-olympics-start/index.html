@@ -11,26 +11,26 @@
     <header id="header"></header>
     <label>Theme</label>
     <select id="theme-drop-down">
-        <option value="theme-one">blue/brown</option>
-        <option value="theme-two">red/black</option>
+        <option id= "theme-one" value="theme-one">blue/brown</option>
+        <option id= "theme-two" value="theme-two">red/black</option>
     </select>
     <div id="main">
         <button id='clear-button'>clear</button>
         <div class="messages">
-            <div class="message left">
+            <div id= "first message left" class="message left">
                 I have something serious to talk about
             </div>
-            <div class="message right">
+            <div id= "first message right" class="message right">
                 I don't want to talk
             </div>
-            <div class="message left">
+            <div id= "second message left" class="message left">
                 You have to, you're the police
             </div>
-            <div class="message right">
+            <div id= "second message right" class="message right">
                 I'm just a simple farmer
             </div>
         </div>
-        <form name="message">
+        <form name="form">
             <input id="input" value="Thanks! Goodbye"/>
             <button>Send</button>
         </form>
