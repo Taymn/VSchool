@@ -9,15 +9,15 @@ var powerRangers = [
 
 var rangersList = document.getElementById("rangers")
 
-// for (var i = 0; i < powerRangers.length; i++) {
-//     var newName = document.createElement("li")
-//     newName.textContent = powerRangers[i]
-//     rangersList.append(newName)
-// }
-
 for (var i = 0; i < powerRangers.length; i++) {
-    rangersList.innerHTML += "<li>" + powerRangers[i] + "</li>"
+    var newName = document.createElement("li")
+    newName.textContent = powerRangers[i]
+    rangersList.append(newName)
 }
+
+// for (var i = 0; i < powerRangers.length; i++) {
+//     rangersList.innerHTML += "<li>" + powerRangers[i] + "</li>"
+// }
 
 
 // pull name - color
