@@ -29,14 +29,23 @@
 #list {
     flex-direction: column;
     display: flex;
+    align-items: center;
+    /* adds scroll for overflow items */
+    overflow-y: scroll;
+    height: 128px;
 }
 
 #list > li{
     list-style-type: none;
     margin: 10px auto;
+    text-align: center;
 }
 
 #list div {
     margin-bottom: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
