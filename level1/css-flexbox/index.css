@@ -1,0 +1,54 @@
+/* Part 1 */
+
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+/* #flex-container {
+    border: 1px solid black;
+    height: 200px;
+    display: flex; */
+    /* Default */
+    /* flex-direction: row;  */
+    /* Change direction */
+    /* flex-direction: column;
+
+} */
+
+/* Part 2 */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#flex-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
+    /* align-items: flex-end */
+    height: 200px;
+    margin: 0 10px;
+}
+
+#flex-container > div:nth-child(1){
+    background-color: dodgerblue;
+    height: 30px;
+    margin: 0 10px;
+}
+
+#flex-container > div:nth-child(2){
+    background-color: firebrick;
+    height: 30px;
+    margin: 0 10px;
+
+}
+
+#flex-container > div:nth-child(3){
+    background-color: violet;
+    height: 30px;
+    margin: 0 10px;
+
+}
