@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,37 @@
     <link rel="stylesheet" href="style.css">
     <title>DOM Olympics</title>
 </head>
+
 <body id="body">
     <header id="header"></header>
     <label>Theme</label>
     <select id="theme-drop-down">
-        <option id= "theme-one" value="theme-one">blue/brown</option>
-        <option id= "theme-two" value="theme-two">red/black</option>
+        <option id="theme-one" value="theme-one">blue/brown</option>
+        <option id="theme-two" value="theme-two">red/black</option>
     </select>
     <div id="main">
         <button id='clear-button'>clear</button>
-        <div class="messages">
-            <div id= "first message left" class="message left">
+        <div class="messages" id = "messages">
+            <div id="first message left" class="message left">
                 I have something serious to talk about
             </div>
-            <div id= "first message right" class="message right">
+            <div id="first message right" class="message right">
                 I don't want to talk
             </div>
-            <div id= "second message left" class="message left">
+            <div id="second message left" class="message left">
                 You have to, you're the police
             </div>
-            <div id= "second message right" class="message right">
+            <div id="second message right" class="message right">
                 I'm just a simple farmer
             </div>
         </div>
         <form name="form">
-            <input id="input" value="Thanks! Goodbye"/>
+            <input id="input" value="Thanks! Goodbye" />
             <button>Send</button>
         </form>
     </div>
-   
+
     <script src="index.js"></script>
 </body>
+
 </html>

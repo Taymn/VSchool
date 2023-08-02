@@ -20,9 +20,9 @@ form.addEventListener("submit", (event)=>{
     edBtn.addEventListener("click", function(){
         newLi.inputMode()
     })
-
+    const span = document.createElement("span")
     var deleBtn = document.createElement("button")
-    deleBtn.innerText = "X"
+    deleBtn.textContent = "X"
     deleBtn.setAttribute("class", "deleteButton")
 
     // removes parent and children
@@ -30,12 +30,13 @@ form.addEventListener("submit", (event)=>{
         newLi.remove()
     })
 
-    newLi.textContent = input
+    newDiv.textContent = input
     newLi.setAttribute("class","listItem")
     newDiv.setAttribute("class","listContainer")
 
     list.appendChild(newLi)
     newLi.appendChild(newDiv)
-    newDiv.appendChild(edBtn)
-    newDiv.appendChild(deleBtn)
+    newDiv.appendChild(span)
+    span.appendChild(edBtn)
+    span.appendChild(deleBtn)
 })

@@ -18,6 +18,7 @@ let putHandInHole = "put hand in hole"
 let pocket = []
 let living = true
 let playAgain = false
+let hasKey = false
 
 /*while loop - if/else statement. Ends when condition is not met*/
 while (living === true) {
@@ -31,6 +32,7 @@ while (living === true) {
             pocket.push(item),
                 console.log("You have choosen to find key.");
             console.log("Key obtained!")
+            hasKey = true
             break;
         case "2":
             console.log("You have choosen to put hand in hole.");
