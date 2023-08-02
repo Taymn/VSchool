@@ -32,7 +32,7 @@
     align-items: center;
     /* adds scroll for overflow items */
     overflow-y: scroll;
-    height: 128px;
+    height: 250px;
 }
 
 #list > li{

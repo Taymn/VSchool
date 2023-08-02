@@ -38,7 +38,7 @@ while (living === true) {
             console.log("You Died")
             break;
         case "3":
-            console.log("You have choose to open the door.");
+            console.log("You have choosen to open the door.");
             if (pocket[0] === "key") {
                 while (playAgain === false) {
                     console.log("Door is open.")
