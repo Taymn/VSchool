@@ -1,0 +1,134 @@
+html {
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Karla', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+header {
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  display: flex;
+  flex-direction: row;
+  height: 7rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+h4 {
+  font-weight: 500;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  font-size: 1.5rem;
+  padding: 20px;
+  font-family: 'karla', sans-serif;
+}
+
+.logo-header {
+  height: 3.25rem;
+  object-fit: cover;
+  padding: 10px;
+  margin-left: 15px;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  padding-right: 50px;
+}
+.form-container{
+  box-sizing: border-box;
+  padding: 3rem;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  font-family: 'Karla', sans-serif;
+  align-items: center;
+  margin: auto;
+  justify-content: space-around;
+  width: 100%;
+}
+form-container::nth-child(4){
+  justify-content: center;
+}
+
+input {
+  width: 47%;
+  border-radius: 5px;
+  border: 1px solid rgba(213, 212, 216, 1);
+  height: 2rem;
+  align-self: center;
+  margin: 10px;
+  height: 2.75rem;
+  text-indent: 5px;
+}
+.click-button {
+  width: 100%;
+  height: 3.5rem;
+  background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-family: 'karla', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.1em;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.meme-image {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 100%;
+  border-radius: 3px;
+}
+.meme {
+  position: relative;
+}
+
+.meme-text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 3em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      0 2px 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      -2px 0 0 #000,
+      2px 2px 5px #000;
+}
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
+}
