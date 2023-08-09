@@ -1,11 +1,33 @@
 
 const readline = require("readline-sync");
 
+/* 1. Console must greet player with a fun message */
+console.log("Welcome to my RPG");
+readline.prompt();
+
+/* 2. Console must ask for the player's name and store it  */
+const name = readline.question("What is your name, Adventurer? ");
+console.log(`Hope that you are ready for a Colossal Adventure, ${name}!`);
+console.log(" ")
+readline.keyIn('At any time, press[p] to check your stats. Try it now.\n', {limit: 'p' })
+console.log(" ")
+
 /* Player */
 const adventurer = {
     HP: 100,
     attPwr: 20,
+    Inventory: [""],
+    
+    printInventory(){
+        console.log(`Name:${name}`);
+        console.log(`HP:${this.HP}`);
+        console.log(`Attack Power:${this.attPwr}`);
+        console.log(`Inventory:${this.Inventory}`); 
+    }
 }
+adventurer.printInventory();
+console.log(" ")
+readline.prompt();
 
 /* Enemies */
 let enemies =
@@ -25,16 +47,6 @@ let enemies =
         attPwr: 15
     }]
 
-
-/* 1. Console must greet player with a fun message */
-console.log("Welcome to my RPG");
-readline.prompt();
-
-/* 2. Console must ask for the player's name and store it  */
-const name = readline.question("What is your name, Adventurer? ");
-console.log(`Hope that you are ready for a Colossal Adventure, ${name}!`);
-console.log(`${name} has HP of ${adventurer.HP} and attPwr is ${adventurer.attPwr}`)
-readline.prompt();
 
 /* 3. Walking: Boolean  */
 let walk = false
@@ -62,17 +74,20 @@ function enemyFound() {
 
     while (wildEnemy === true) {
         let enemyType = Math.floor(Math.random() * enemies.length)
-        console.log("ENEMY FOUND FUNCTION")
+        // console.log("ENEMY FOUND FUNCTION")
         let attacking = readline.keyIn('press [a] to attack the ' + enemies[enemyType].name + ' or press [r] to escape. \n', { limit: 'a, r' });
         //Ask player to fight or escape
         if (attacking === 'a') {
             let advenAttPwr = Math.floor(Math.random() * 100 % (adventurer.attPwr))
             console.log('You attacked ' + enemies[enemyType].name + ' .')
+            console.log(" ")
             console.log("Enemy is hit for " + advenAttPwr + ".")
             enemies[enemyType].HP = enemies[enemyType].HP - advenAttPwr
             console.log(enemies[enemyType].name + "'s HP:" + enemies[enemyType].HP)
             readline.prompt();
             fight(enemies[enemyType])
+
+            // create new enemy
 
         } else if (attacking === 'r') {
             escape(enemies[enemyType])
@@ -83,7 +98,7 @@ function enemyFound() {
 // Escape Function
 function escape(boss) {
     let escChance = Math.floor(Math.random() * 2) + 1
-    console.log("You have entered ESCAPE FUNCTION")
+    // console.log("You have entered ESCAPE FUNCTION")
     if (escChance === 1) {
         wildEnemy = false
         attack = false
@@ -94,6 +109,7 @@ function escape(boss) {
         console.log(`Escape failed. Prepare to face ${boss.name}!`)
         readline.prompt()
         fight(boss)
+        // BUG
     }
     //After the player attacks or runs, the enemy attacks back for a random damage amount
     console.log(`Attacked by ${boss.name}`)
@@ -106,7 +122,7 @@ function escape(boss) {
 
 // Fight Function
 function fight(boss) {
-    console.log("FIGHT FUNCTION")
+    // console.log("FIGHT FUNCTION")
     console.log(`Fight ${boss.name}`)
     readline.prompt()
 
@@ -115,6 +131,7 @@ function fight(boss) {
         adventurer.HP = adventurer.HP - enemyAttPwr
         console.log(`${boss.name} Attacked for ${enemyAttPwr}.`)
         console.log(`${name}'s HP:${adventurer.HP}`)
+        console.log(" ")
         let advenAttPwr = Math.floor(Math.random() * 100 % (adventurer.attPwr))
         boss.HP = boss.HP - advenAttPwr
         console.log(`You attacked ${boss.name} for ${advenAttPwr}.`)
@@ -125,13 +142,22 @@ function fight(boss) {
         console.log(`Adventurer ${name} was found unworthy.`)
         process.exit()
     } else if (boss.HP <= 0) {
-        for (var i = enemies.length; i >= 0; i--){
-            (enemies[i] === -1)
-        }
+        let arr = [...enemies]
+        let newEnemyArray = arr.filter(item => {
+            if (item.name !== boss.name) {
+                return item
+            }
+        })
+        enemies = newEnemyArray
+
         console.log(`${boss.name} is defeated!`)
-    } else if (Array.of(enemies) === -1) {
+        console.log(" ")
+    } if (enemies.length === 0) {
+        wildEnemy = false
         console.log(`Adventurer ${name} has conquered all opponents!`)
     }
+    console.log("Enemies Left: "+ enemies.length)
+    console.log(" ")
 }
 
 
