@@ -34,7 +34,8 @@ droppedItem = ["Potion"]
 
 /* Enemies */
 let enemies =
-    [{
+    [
+        {
         name: "Knight",
         HP: 30,
         attPwr: 20,
@@ -42,13 +43,14 @@ let enemies =
     {
         name: "Bandit",
         HP: 20,
-        attPwr: 10
+        attPwr: 10,
     },
     {
         name: "Guard",
         HP: 50,
-        attPwr: 15
-    }]
+        attPwr: 15,
+    }
+]
 
 
 /* 3. Walking: Boolean  */
@@ -58,6 +60,7 @@ let wildEnemy = false
 
 while (adventurer.HP > 0 && enemies.length > 0) {
     let walking = readline.keyIn('press [w] to walk \n', { limit: 'w , p'});
+
     if (walking === 'w'){
         while(wildEnemy === false){
             const walkOrEnemy = Math.floor(Math.random() * 4) + 1
@@ -88,9 +91,9 @@ function enemyFound() {
     while (wildEnemy === true) {
         let enemyType = Math.floor(Math.random() * enemies.length)
         console.log("A "+enemies[enemyType].name+" has been spotted")
+        console.log(" ")
         let attacking = readline.keyIn('press [a] to attack the ' + enemies[enemyType].name + ' or press [r] to escape. \n', { limit: 'a, r,p' });
         console.log(" ")
-
         //Ask player to fight or escape
           if (attacking === 'p'){
             adventurer.printInventory()
@@ -98,11 +101,11 @@ function enemyFound() {
 // BUG rerolls the enemy
             }else if (attacking === 'a') {
             let advenAttPwr = Math.floor(Math.random() * 100 % (adventurer.attPwr))
-            console.log(" ")
-            console.log('You attacked ' + enemies[enemyType].name + ' .')
+            console.log('You attacked ' + enemies[enemyType].name + '.')
             console.log("Enemy is hit for " + advenAttPwr + ".")
             enemies[enemyType].HP = enemies[enemyType].HP - advenAttPwr
             console.log(enemies[enemyType].name + "'s HP:" + enemies[enemyType].HP)
+            console.log(" ")
             readline.prompt();
             fight(enemies[enemyType])
             
@@ -132,11 +135,12 @@ function escape(boss) {
 }
 
 function escapeHit(boss){
-    console.log(`Attacked by ${boss.name}`)
+    console.log(`Attacked by ${boss.name}.`)
     let enemyAttPwr = Math.floor(Math.random() * 100 % (boss.attPwr))
     adventurer.HP = adventurer.HP - enemyAttPwr
     console.log(`${boss.name} attacked for `+enemyAttPwr+ ".")
     console.log(`${name}'s HP: ${adventurer.HP}`)
+    console.log(" ")
     readline.prompt();
 
 }
@@ -159,31 +163,73 @@ function fight(boss) {
         console.log(`${boss.name}'s HP: ${boss.HP}`)
         readline.prompt();
     }
+
+    // Player death
     if (adventurer.HP <= 0) {
         console.log(`Adventurer ${name} was found unworthy.`)
         process.exit()
-    } if (boss.HP <= 0) {
+    } 
+    
+    // Enemy death
+    if (boss.HP <= 0) {
         let arr = [...enemies]
         let newEnemyArray = arr.filter(item => {
             if (item.name !== boss.name) {
                 return item
             }
-        })
+            })
+
         enemies = newEnemyArray
         adventurer.HP = adventurer.HP + 10
         console.log(`${boss.name} is defeated! Item drop recieved.`)
-        console.log(`${name}'s HP:${adventurer.HP}`)
-        adventurer.Inventory.push(droppedItem)
+        console.log(`Adventurer gains 10 Health, ${name}'s HP:${adventurer.HP}.`)
         console.log(" ")
-    } if (enemies.length === 0) {
+        adventurer.Inventory.push(droppedItem)
+    } 
+
+    // Buff enemies
+    if (enemies.length < 3 && enemies.length !== 0){
+        enemyAttPwr = Math.floor(Math.random() * 200 % (boss.attPwr))
+    console.log("The enemy is ENRAGED by their fallen!")
+    console.log(enemyAttPwr)
+    }
+    
+    console.log("Enemies Left: "+ enemies.length)
+    console.log(" ")
+
+    //Enemy removal
+    if (enemies.length === 0) {
         wildEnemy = false
         console.log(`Adventurer ${name} has conquered all opponents!`)
         process.exit()
     }
-    console.log("Enemies Left: "+ enemies.length)
-    console.log(" ")
 }
 
+// Add + 10 attPwr to enemies left anfter a kill
+        
+// function attBuff(enemies) {
+        
+//         for(var i = 0; i < enemies.length; i++){
+//             for(var j = 0; j < enemies[j].length; j++){
+//                 console.log(enemies[i][j])
+//             if (enemies.length === 2){
+//                 // enemies[i].attPwr+=10
+//             }if (enemies.length === 1){
+//                 // enemies[i].attPwr+=10
+//             }
+//         }
+//     }
+// }
+
+  // console.log(`Enemies recieve a buff of ${attBuff}`)
+        
+        // enemies[boss].attPwr = enemies[boss].attPwr + 10
+        // console.log(enemies[boss].attPwr)
+        // let attBuff = newEnemyArray.forEach((attPwr, index) => {
+        //     if (index.attPwr !== 0) {
+        //         return attPwr+=10
+        //     }
+        // });
 
 // If attacking, a random amount of damage will be dealt between a min and max
 
