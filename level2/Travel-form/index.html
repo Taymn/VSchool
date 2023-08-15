@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Travel form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="title">Traveler Data</header>
+    <form id="Travel">
+        <input type="text" name="firstName">
+        <label for="">First Name</label>
+        <br>
+        <input type="text" name="lastName">
+        <label for="">Last Name</label>
+        <br>
+        <input type="digit" name="age">
+        <label for="">Age</label>
+        <br>
+        <input type="radio" name="gender" value="Male" id="male">
+        <label for="male">Male</label>
+        <br>
+        <input type="radio" name="gender" value="Female" id="female">
+        <label for="female">Female</label>
+        <br>
+        <select class="location" name="location">
+            <option value="Houston">Houston</option>
+            <option value="Arlington">Arlington</option>
+            <option value="San Antonio">San Antonio</option>
+        </select>
+        <label for="location">Location</label>
+        <br>
+        <input class="diet" type="checkbox" value="vegetarian" name="vegetarian" id="vegetarian">
+        <label for="vegetarian">vegetarian</label>
+        <br>
+        <input class="diet" type="checkbox" value="kosher" name="kosher" id="kosher">
+        <label for="kosher">kosher</label>
+        <br>
+        <input class="diet" type="checkbox" value="lactose-free" name="lactose-free" id="lactose-free">
+        <label for="lactose-free">lactose-free</label>
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+    <script src="index.js"></script>
+</body>
+</html>

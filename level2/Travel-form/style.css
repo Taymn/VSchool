@@ -1,0 +1,29 @@
+html, body{
+    width: 50wh;
+    display: inline-block;
+    /* text-align: center; */
+}
+#title{
+    font-size: 50px;
+    text-align: center;
+}
+#Travel{
+    border: 5px solid;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+#male{
+    margin: 20% 0% 0% 30%;    
+}
+#female{
+    margin: 0% 0% 20% 30%;
+}
+#vegetarian{
+    margin: 20% 0% 0% 30%;
+}
+.diet{
+    margin: 0% 0% 0% 30%;
+}
+#submit{
+    margin: 40% 0% 0% 40%;
+}

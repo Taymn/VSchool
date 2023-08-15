@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Mario Pest Control</title>
+</head>
+
+<body>
+    <div class="title-bar">
+        <h1 class="title">Mario Pest Control</h1>
+    </div>
+    <div class="main">
+        <div class="title-bar">
+            <h3 class="title">Add Baddie</h3>
+        </div>
+
+        <form name="addItem" id="add-Baddie">
+            <!-- <ul id="list"> -->
+                <select name="addItem" id="add-Baddie" required>
+                    <option value="Goombas" >Goombas</option>
+                    <option value="Bob-boms">Bob-boms</option>
+                    <option value="Cheep-cheeps">Cheep-cheeps</option>
+                </select>
+                <ul>
+                    <div>Baddie Image</div>
+                    <div>Baddie Name</div>
+                    <div>Price</div>
+                </ul>
+                <input class="input" type="number" name="totalCaught">
+                <label class="label" for="title">Total Caught</label>
+                <button type="button" id="submit">Calculate</button>
+            <!-- </ul> -->
+
+        </form>
+        <div class="baddies">
+            <div class="title-bar">
+                <h3 class="title">list of Baddies Caught</h3>
+            </div>
+            <hr>
+            <ul id="list">
+                <div name="baddieImage" id="baddieImage"><img src="" alt="">Baddie Image</div>
+                <div name="baddieName" id="baddieName">Baddie Name</div>
+                <div name="baddiePrice" id="baddiePrice">Total: <span id="total"></span></div>
+                <hr>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <nav class="nav">
+           <a href="emailto:">Email</a>
+           <a href="http://">Website</a>
+           <address>Address</address> 
+        </nav>
+        <h1 class="title" id="slogan">It's a me, Mario!</h1>
+    </footer>
+</body>
+<script src="index.js"></script>
+
+</html>
