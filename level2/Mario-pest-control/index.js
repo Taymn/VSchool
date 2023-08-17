@@ -5,11 +5,11 @@ addBaddie.addEventListener("click",()=>{
 //const for 3 baddies to pull values
 
 const Goombas = document.getElementById("goombasInput").value
-console.log(Goombas)
+// console.log(Goombas)
 const Bobboms = document.getElementById("bobbomsInput").value
-console.log(Bobboms)
+// console.log(Bobboms)
 const Cheeps = document.getElementById("cheepsInput").value
-console.log(Cheeps)
+// console.log(Cheeps)
 
 //create element to display values as a total
 
@@ -20,7 +20,11 @@ var totalAmount = Goombas*5 + Bobboms*7 + Cheeps*11
 
 total.textContent = "Total: "+totalAmount
 
+goombasInput.value=null
+bobbomsInput.value=null
+cheepsInput.value=null
+
 // totalAmount += 2
 
-console.log(totalAmount)
+// console.log(totalAmount)
 })
