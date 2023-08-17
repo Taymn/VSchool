@@ -14,46 +14,57 @@
         <h1 class="title">Mario Pest Control</h1>
     </div>
     <div class="main">
-        <div class="title-bar">
-            <h3 class="title">Add Baddie</h3>
-        </div>
-
-        <form name="addItem" id="add-Baddie">
-            <!-- <ul id="list"> -->
-                <select name="addItem" id="add-Baddie" required>
-                    <option value="Goombas" >Goombas</option>
-                    <option value="Bob-boms">Bob-boms</option>
-                    <option value="Cheep-cheeps">Cheep-cheeps</option>
-                </select>
-                <ul>
-                    <div>Baddie Image</div>
-                    <div>Baddie Name</div>
-                    <div>Price</div>
-                </ul>
-                <input class="input" type="number" name="totalCaught">
-                <label class="label" for="title">Total Caught</label>
+        <form name="addBaddie" id="addBaddie">
+            <div class="baddie">
+                <h3 class="name">Goombas</h3>
+                <h3 class="image"><img id="baddieImage"
+                        src="https://p1.hiclipart.com/preview/904/271/767/super-mario-bros-icons-goomba-png-icon-thumbnail.jpg">
+                </h3>
+                <h3 class="price">5 Coins</h3>
+                <label class="label" for="title">Caught</label>
+                <input class="goombasInput" type="number" name="caught" id="goombasInput">
+            </div>
+            <div class="baddie">
+                <h3 class="name">Bob-boms</h3>
+                <h3 class="image"><img id="baddieImage"
+                        src="https://p1.hiclipart.com/preview/44/468/901/super-mario-bros-icons-bob-omb-png-icon-thumbnail.jpg">
+                </h3>
+                <h3 class="price">7 Coins</h3>
+                <label class="label" for="title">Caught</label>
+                <input class="bobbomsInput" type="number" name="caught" id="bobbomsInput">
+            </div>
+            <div class="baddie">
+                <h3 class="name">Cheep-cheeps</h3>
+                <h3 class="image"><img id="baddieImage"
+                        src="https://p7.hiclipart.com/preview/628/983/708/5bee5f5d49c22.jpg"></h3>
+                <h3 class="price">11 Coins</h3>
+                <label class="label" for="title">Caught</label>
+                <input class="cheepsInput" type="number" name="caught" id="cheepsInput">
+            </div>
+            <div>
                 <button type="button" id="submit">Calculate</button>
-            <!-- </ul> -->
-
+            </div>
+            <hr>
         </form>
         <div class="baddies">
             <div class="title-bar">
-                <h3 class="title">list of Baddies Caught</h3>
+                <h3 class="title">Total for Baddies Caught</h3>
             </div>
-            <hr>
-            <ul id="list">
-                <div name="baddieImage" id="baddieImage"><img src="" alt="">Baddie Image</div>
-                <div name="baddieName" id="baddieName">Baddie Name</div>
-                <div name="baddiePrice" id="baddiePrice">Total: <span id="total"></span></div>
-                <hr>
-            </ul>
+
+            <div name="total" id="total">
+                <span id="span">Total:</span>
+            </div>
+            <!-- <button type="button" id="clear">Clear</button> -->
+
+
+
         </div>
     </div>
     <footer>
         <nav class="nav">
-           <a href="emailto:">Email</a>
-           <a href="http://">Website</a>
-           <address>Address</address> 
+            <a href="emailto:Mario@noa.nintendo.com">Email</a>
+            <a href="http://www.Nintendo.com">Website</a>
+            <address>1234 Rainbow Road, Somewhere Dumb, CA, 45678, Republic of the Democratic</address>
         </nav>
         <h1 class="title" id="slogan">It's a me, Mario!</h1>
     </footer>

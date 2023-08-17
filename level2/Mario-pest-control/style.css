@@ -1,69 +1,108 @@
-form{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-}
-.title {
-    text-align: center;
-}
+ form {
+     display: inline-box;
+     align-items: center;
+ }
 
-.main{
-    border: 1px solid black;
-    width: 50%;
-    margin: auto;
-}
-#add-item{
-    border: 1px solid black;
-}
+ .title {
+     text-align: center;
+ }
 
-.input {
-    width: 100px;
-    padding: 12px 20px;
-    margin: 8px 0;
+ .main {
+    background-color: gray;
+     border: 1px solid black;
+     margin: auto;
+     
+ }
+
+ #add-item {
+     border: 1px solid black;
+ }
+
+ .input {
+     width: 100px;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+ }
+
+ .label {
+     margin: 10px;
+ }
+
+ #add-Baddie {
+     margin-bottom: 10px;
+ }
+
+ #list {
+     flex-direction: column;
+     display: flex;
+     align-items: center;
+ }
+
+ #list>li {
+     list-style-type: none;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     height: 200px;
+     width: 200px;
+     border: 1px solid blue;
+ }
+
+ #list div {
+     margin-bottom: 10px;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .listItem {
+     display: flex;
+     flex-direction: column;
+ }
+
+ #clear {
+     text-align: center;
+ }
+
+ nav {
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-.label {
-    margin: 10px;
-}
-#add-Baddie{
-    margin-bottom: 10px;
-}
-#list {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    /* adds scroll for overflow items */
-    overflow-y: scroll;
-    height: 250px;
-}
-#list > li{
-    list-style-type: none;
+     justify-content: space-evenly;
+ }
+
+ .baddie {
+    font-family: Arial, Helvetica, sans-serif;
+     display: inline-block;
+     text-align: center;
+     padding: 10px;
+     justify-content: space-around;
+ }
+ h3.price{
+    color: goldenrod;
+ }
+
+ h3.name{
+    font-size: 30px;
+ }
+ .label{
+    font-style: italic;
+ }
+
+#baddieImage {
+    padding: 10px;
+    max-width: 256px;
+    max-height: 256px;
+ }
+#addBaddie{
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    width: 200px;
-    border: 1px solid blue;
 }
 
-#list div {
-    margin-bottom: 10px;
+#total {
+    font-size: 25px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.listItem {
-    display: flex;
-    flex-direction: column;
-}
-nav{
-    margin: 0px 150px 0px 150px;
-    display: flex;
-    justify-content: space-around;
 }
