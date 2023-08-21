@@ -2,7 +2,6 @@
 
 // Write a function that takes an array of numbers and returns a new array with the numbers sorted in ascending order.
 
-
 function sortNumbers(numbers) {
 return numbers.sort((a, b) => a - b);
 }

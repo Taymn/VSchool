@@ -48,12 +48,12 @@ console.log(fiveCharactersOrFewerOnly(["dog", "wolf", "by", "family", "eaten", "
 
 function peopleWhoBelongToTheIlluminati(arr) {
     //     const peopleWhoBelongToTheIlluminati = arr.filter(arr => {
-    //             if(arr.member === true){
+    //             if(arr.member !== true){
     //                 return arr
     //             }
     //     })
     //     return peopleWhoBelongToTheIlluminati
-    return arr.filter(arr => arr.member === true)
+    return arr.filter(arr => arr.member !== true)
 }
 
 // test
@@ -68,13 +68,13 @@ console.log(peopleWhoBelongToTheIlluminati([
 // 5) Make a filtered list of all the people who are old enough to see The Matrix (older than 18)
 
 function ofAge(arr) {
-    // const ofAge = arr.filter(arr => {
-    //     if(arr.age >= 18){
-    //         return arr
+    // const ofAge = arr.filter(person => {
+    //     if(person.age >= 18){
+    //         return person
     //     }
     // })
     // return ofAge
-    return arr.filter(arr => arr.age >= 18 ? arr : null)
+    return arr.filter(person => person.age >= 18 ? person : null)
 }
 // test
 console.log(ofAge([
