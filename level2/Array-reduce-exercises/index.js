@@ -34,7 +34,7 @@ function totalVotes(arr) {
     //     return final
     // }, 0)
     // return voteCount
-    return voters.reduce((final, voter) => voter.voted ? final++: null, 0)
+    return voters.reduce((final, voter) => final += voter.voted, 0)
 }
 
 var voters = [
@@ -56,11 +56,12 @@ console.log(totalVotes(voters));
 //  4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
 
 function shoppingSpree(arr) {
-    let shoppingSpree = arr.reduce(function (final, num) {
-        return { price: final.price + num.price }
-    })
-    return shoppingSpree
-    
+    // let shoppingSpree = arr.reduce(function (final, num) {
+    //     final += num.price++;
+    //     return final;
+    // }, 0)
+    // return shoppingSpree
+    return arr.reduce((final, num) => final += num.price++, 0)
 }
 
 var wishlist = [
@@ -112,28 +113,54 @@ var voters = [
 ];
 
 function voterResults(arr) {
-    let voterResults = arr.reduce(function (final, voter) {
+    // let voterResults = arr.reduce(function (final, voter) {
+    //     if (voter.age <= 25 && voter.voted) {
+    //         final.numYoungVotes++
+    //     }
+    //     if (voter.age <= 25) {
+    //         final.numYoungPeople++
+    //     }
+    //     if (voter.age >= 26 && voter.age <= 35 && voter.voted) {
+    //         final.numMidVotesPeople++
+    //     }
+    //     if (voter.age >= 26 && voter.age <= 35) {
+    //         final.numMidsPeople++
+    //     }
+    //     if (voter.age >= 36 && voter.age <= 55 && voter.voted) {
+    //         final.numOldVotesPeople++
+    //     }
+    //     if (voter.age >= 36 && voter.age <= 55) {
+    //         final.numOldsPeople++
+    //     }
+
+    return arr.reduce((final, voter) => {
         if (voter.age <= 25 && voter.voted) {
-            final.numYoungVotes++
+            final.numYoungVotes++;
         }
         if (voter.age <= 25) {
-            final.numYoungPeople++
+            final.numYoungPeople++;
         }
         if (voter.age >= 26 && voter.age <= 35 && voter.voted) {
-            final.numMidVotesPeople++
+            final.numMidVotesPeople++;
         }
         if (voter.age >= 26 && voter.age <= 35) {
-            final.numMidsPeople++
+            final.numMidsPeople++;
         }
         if (voter.age >= 36 && voter.age <= 55 && voter.voted) {
-            final.numOldVotesPeople++
+            final.numOldVotesPeople++;
         }
         if (voter.age >= 36 && voter.age <= 55) {
-            final.numOldsPeople++
+            final.numOldsPeople++;
         }
         return final
-    }, { numYoungVotes: 0, numYoungPeople: 0, numMidVotesPeople: 0, numMidsPeople: 0, numOldVotesPeople: 0, numOldsPeople: 0 })
+    }, {
+        numYoungVotes: 0,
+        numYoungPeople: 0,
+        numMidVotesPeople: 0,
+        numMidsPeople: 0,
+        numOldVotesPeople: 0,
+        numOldsPeople: 0
+    });
     return voterResults
-}
-
+};
 console.log(voterResults(voters));
