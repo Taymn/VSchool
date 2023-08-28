@@ -1,0 +1,64 @@
+{
+    "appeteixers": [
+        {
+            "name": "Stuffed Mushrooms",
+            "ingredients": ["bread crumbs", "cheese","garlic cloves","parsley","mint","pepper","olive oil", "white mushrooms"],
+            "description": "Yum yums for your tum tum."
+        },
+        {
+            "name": "Cheesy Breadsticks",
+            "ingredients": ["water","sugar","yeast", "olive oil","salt","vinegar"],
+            "description": "if we screw these up then its a pizza on us"
+        }
+    ],
+
+    "cold sanwiches": [
+        {
+            "name": "Meatloaf",
+            "ingredients": ["bread","meatloaf","mayo"],
+            "description": "considered 'the classic'"
+        },
+        {
+            "name": "Shawarma",
+            "ingredients": ["chicken","vegetables","tortilla"],
+            "description": "This one is served cold. See below"
+        }
+    ],
+    
+    "hot sanwiches": [
+        {
+            "name": "Meatloaf",
+            "ingredients": ["toast","meatloaf","cheese"],
+            "description": "the warmer classic"
+        },
+        {
+            "name": "Shawarma",
+            "ingredients": ["chicken","vegetables","tortilla"],
+            "description": "Can be served hot or cold. See above"
+        }
+    ],
+    "deserts": [
+        {
+            "name": "Elvis",
+            "ingredients": ["peanut butter", "bananas","bacon"],
+            "description": "Named after singer and American cultural icon Elvis Presley -- who was infatuated with sandwiches (particularly ones of the rich and indulgent variety)"
+        },
+        {
+            "name": "Fluffernutter",
+            "ingredients": ["bread","peanut butter","marshmellow creme"],
+            "description": "The fluffernutter is as common and nostalgic to New Englanders as PB&Js are to the rest of America."
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Lager",
+            "ingredients": ["water", "grain", "yeast", "hops"],
+            "description": "It pairs well with red meat"
+        },
+        {
+            "name": "Champagne",
+            "ingredients": ["grapes","yeast","sugar","sulfites", "fining agents", "Liqueur d'expedition"],
+            "description": "Its the best choice with eggs so pair it with the adult version"
+        }
+    ]
+}
