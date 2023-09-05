@@ -17,7 +17,7 @@ todoForm.addEventListener('submit', function (event) {
         title: form.title.value,
         price: form.price.value,
         description: form.description.value,
-        imgURL: form.imgURL.value
+        imgUrl: form.imgUrl.value
     }
     console.log(newTodo)
     axios.post('https://api.vschool.io/AdamTaylor/todo/', newTodo).then(response => {
@@ -26,7 +26,7 @@ todoForm.addEventListener('submit', function (event) {
         form.title.value = ""
         form.price.value = ""
         form.description.value = ""
-        form.imgURL.value = ""
+        form.imgUrl.value = ""
         fetchTodoData()
 
         console.log(response.data);
@@ -43,15 +43,25 @@ function fetchTodoData() {
             document.getElementById("list").textContent = ""
             for (let i = 0; i < response.data.length; i++) {
                 const h1 = document.createElement('h1')
+                h1.setAttribute("class", "todo-item-title")
                 const para = document.createElement('p')
+                para.setAttribute("class","todo-item-details")
                 const desr = document.createElement('p')
+                desr.setAttribute("class","todo-item-details")
                 const check = document.createElement("input")
                 const deleBtn = document.createElement("button")
                 const newDiv = document.createElement("div")
+                newDiv.className = "todo-item"
+                const label = document.createElement('label')
+                label.setAttribute
+                label.textContent = "Completed"
+                newDiv.appendChild(h1)
+                newDiv.appendChild(para)
+                newDiv.appendChild(desr)
                 if (response.data[i].imgUrl) {
                     const img = document.createElement('img')
                     img.setAttribute("src", response.data[i].imgUrl)
-                    img.setAttribute("class", "input")
+                    img.setAttribute("class", "todo-item-img")
                     newDiv.appendChild(img)
                 }
                 h1.textContent = response.data[i].title
@@ -59,23 +69,20 @@ function fetchTodoData() {
                 desr.textContent = response.data[i].description
                 check.setAttribute("class", "checkbox")
                 check.setAttribute("type", "checkbox")
-                deleBtn.setAttribute("class", "deleteButton")
+                deleBtn.setAttribute("class", "todo-item-button")
                 deleBtn.textContent = "Delete"
-                const label = document.createElement('label')
-                label.textContent = "Completed"
-                label.appendChild(check)
-                newDiv.appendChild(h1)
-                newDiv.appendChild(para)
-                newDiv.appendChild(desr)
-                newDiv.appendChild(label)
-                newDiv.appendChild(deleBtn)
                 document.getElementById('list').appendChild(newDiv)
                 check.addEventListener('click',function(){toggleCompleted(response.data[i], newDiv)})
                 
                 if(response.data[i].completed === true){
-                    newDiv.style.textDecoration = "line-through"
+                    h1.style.textDecoration = "line-through";
+                    para.style.textDecoration = "line-through";
+                    desr.style.textDecoration = "line-through";
                     check.checked = true
                 }
+                newDiv.appendChild(label)
+                label.appendChild(check)
+                newDiv.appendChild(deleBtn)
 
                 let todoId = response.data[i]._id
                 deleBtn.addEventListener("click", function () {
