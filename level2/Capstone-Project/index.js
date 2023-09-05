@@ -8,32 +8,7 @@
 //Project JS
 // const todos = axios.get('https://api.vschool.io/AdamTaylor/todo/');
 
-// Post request
-const todoForm = document.form
-todoForm.addEventListener('submit', function (event) {
-    event.preventDefault()
-
-    const newTodo = {
-        title: form.title.value,
-        price: form.price.value,
-        description: form.description.value,
-        imgUrl: form.imgUrl.value
-    }
-    console.log(newTodo)
-    axios.post('https://api.vschool.io/AdamTaylor/todo/', newTodo).then(response => {
-        // call for loop function
-
-        form.title.value = ""
-        form.price.value = ""
-        form.description.value = ""
-        form.imgUrl.value = ""
-        fetchTodoData()
-
-        console.log(response.data);
-    }).catch(error => {
-        console.log(error)
-    });
-})
+//Call the function to fetch and display the todo data on page load
 
 //for loop function get request
 
@@ -95,9 +70,36 @@ function fetchTodoData() {
         });
 }
 
-//Call the function to fetch and display the todo data on page load
 fetchTodoData();
 
+// Post request
+const todoForm = document.form
+todoForm.addEventListener('submit', function (event) {
+    event.preventDefault()
+
+    const newTodo = {
+        title: form.title.value,
+        price: form.price.value,
+        description: form.description.value,
+        imgUrl: form.imgUrl.value
+    }
+    console.log(newTodo)
+    axios.post('https://api.vschool.io/AdamTaylor/todo/', newTodo).then(response => {
+        // call for loop function
+
+        form.title.value = ""
+        form.price.value = ""
+        form.description.value = ""
+        form.imgUrl.value = ""
+        fetchTodoData()
+
+        console.log(response.data);
+    }).catch(error => {
+        console.log(error)
+    });
+})
+
+// Delete request
 function deleTodo(todoId) {
     console.log(todoId)
     axios.delete('https://api.vschool.io/AdamTaylor/todo/' + todoId).then(response => {
@@ -118,3 +120,9 @@ function toggleCompleted(data,item) {
     console.log(error)
   });
 }
+
+//Get Request
+
+axios.get("https://swapi.dev/api/people/")
+.then(res=>console.log(res))
+.catch(err=>console.log(err))
