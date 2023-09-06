@@ -36,7 +36,6 @@ form {
 }
 
 form>h1 {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.332);
     font-size: 24px;
 }
 
@@ -75,7 +74,6 @@ form button {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid black;
     color: #333;
 }
 
@@ -130,7 +128,6 @@ footer {
     align-items: center;
     justify-content: space-around;
     background-color: #2980b9;
-    border: 1px solid black;
 }
 
 .footer-icons {
@@ -216,13 +213,6 @@ header {
     bottom: 14vh;
     right: 15vw;
 }
-
-
-/* .instructions p {
-    margin: 0;
-
-} */
-
 
 .input {
     border: 2px solid #ccc;
