@@ -1,0 +1,43 @@
+header {
+    border-bottom: 1px solid black;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 60px;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+}
+
+.nav-items>li {
+    padding: 10px;
+}
+
+body {
+    width: 400px;
+}
+
+.main > h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+footer {
+    justify-content: center;
+    color: white;
+    background-color: gray;
+    height: 25px;
+}
+
+footer > small {
+    padding-top: 25px;
+    margin: 0px 0px 0px 0px;
+}

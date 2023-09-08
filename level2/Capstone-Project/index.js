@@ -121,8 +121,9 @@ function toggleCompleted(data,item) {
   });
 }
 
+//Final Assessment Code Challenge
 //Get Request
 
-axios.get("https://swapi.dev/api/people/")
-.then(res=>console.log(res))
-.catch(err=>console.log(err))
+// axios.get("https://swapi.dev/api/people/")
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
