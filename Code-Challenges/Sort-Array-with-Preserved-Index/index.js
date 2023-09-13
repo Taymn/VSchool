@@ -2,7 +2,7 @@ function solution(arr) {
     // Your implementation here
     for (var i = 0; i < arr.length; i++) {
          if (arr[i] === -1) {
-            arr.push(a)
+            arr[i].push()
         }
         arr.sort((a , b) => a - b);
     }
