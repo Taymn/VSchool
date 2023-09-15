@@ -57,8 +57,14 @@ const getRandomNumber = (min, max) => {
 };
 
 while (isGameRunning) {
+  if(enemies.length === 0){
+    console.log(`Congradulations ${hero.name}! You have defeated all enemies!`
+    );
+    // isGameRunning = false
+    process.exit();
+  }
   let action = readline.question(
-    'What do you want to do? Press [w] to walk, [I] to see your inventory or [q] to quit?',
+    'What do you want to do? Press [w] to walk, [i] to see your inventory or [q] to quit?',
     { limit: ["w", "i", "q"] }
   );
   // console.log(action);
@@ -71,14 +77,15 @@ while (isGameRunning) {
     if (enemyChance === 2) {
       let randomEnemyIndex = getRandomNumber(0 - 1, enemies.length)
       let currEnemy = enemies[randomEnemyIndex]
-      console.log("An enemy has appeared");
-      console.log(currEnemy);
+      console.log(`${currEnemy.name} has appeared`);
+
       const options = ["fight", "run"];
-      let fightOrRun = readline.keyInSelect(options, 
+      let fightOrRun = readline.keyInSelect(
+        options,
         "Do you want to fight or run??");
       console.log(options[fightOrRun])
       if (options[fightOrRun] === "fight") {
-        fight();
+        fight(currEnemy);
       } else if (options[fightOrRun] === "run") {
         run();
       }
@@ -93,12 +100,35 @@ while (isGameRunning) {
   }
 }
 
-function fight() {
-  console.log("You Chose to FIGHT");
+function fight(currEnemy) {
+  // console.log(`You Chose to FIGHT ${currEnemy.name}`);
+  while (hero.healthPoints > 0 && currEnemy.healthPoints > 0) {
+    currEnemy.healthPoints -= hero.attackPoints
+    console.log(`You dealt ${hero.attackPoints} damage! ${currEnemy.name} is now at ${currEnemy.healthPoints}`
+    );
+    hero.healthPoints -= currEnemy.attackPoints
+    console.log(`You dealt ${currEnemy.attackPoints} damage! ${hero.name} is now at ${hero.healthPoints}`
+    );
+    if (hero.healthPoints <= 0) {
+      console.log("Sorry, you died!")
+      isGameRunning = false
+    } if (currEnemy.healthPoints <= 0) {
+      console.log(`Congrats you have defeated ${currEnemy.name}`)
+      enemies = enemies.filter(item => item.name !== currEnemy.name)
+    }
+  }
 }
 
-function run() {
-  console.log("You Chose to RUN");
+function run(currEnemy) {
+  console.log(`You Chose to RUN ${currEnemy.name}`);
+  let escapeChance = getRandomNumber(1, 2)
+  if (enemyChance === 1) {
+    console.log(`Congrats ${hero.name}, you escaped`)
+  } else if (escapeChance === 2) {
+    console.log(`Unfortunately you didn't run from ${currEnemy.name}`
+    );
+    fight(currEnemy);
+  }
 }
 
 
