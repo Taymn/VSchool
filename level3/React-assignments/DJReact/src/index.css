@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+}
+
+#grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+button {
+  height: 50px;
+  width: 200px;
+  margin-right: 4px;
+  border-radius: 5px;
+}
+
+.box {
+  border: 1px solid black;
+  width: auto;
+  height: 35vh;
+  margin: 5px;
+}
