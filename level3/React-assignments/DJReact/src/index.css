@@ -10,6 +10,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  margin:0 260px 0 260px;
+
+}
+
+#buttons {
+  margin:0 200px 0 270px;
 }
 
 button {
@@ -22,6 +28,6 @@ button {
 .box {
   border: 1px solid black;
   width: auto;
-  height: 35vh;
+  height: 30vh;
   margin: 5px;
 }

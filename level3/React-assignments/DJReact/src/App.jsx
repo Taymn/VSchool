@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Square from "./components/Square"
 
 function App() {
+        /* State, function*/                  /*Initial State*/ 
   const [squares, setSquares] = useState(["white", "white", "white", "white"])
   const squareElements = squares.map(square => (
     <Square color={square} />
@@ -10,6 +11,13 @@ function App() {
   function checkBlkWh() {
     const newSquareArray = squares.map(square => square === "white" ? "black" : "white")
     setSquares(newSquareArray)
+    // setSquares(prevSquares => {
+    //   if(prevSquares[0] === "white"){
+    //     return ["black","black","black","black"]
+    //   } else {
+    //     return ["white", "white", "white", "white"]
+    //   }
+    // })
   }
 
   function tr2Purp() {
@@ -53,7 +61,7 @@ function App() {
         {squareElements}
       </main>
       <h1 className='title'>DJ Color Board</h1>
-      <div>
+      <div id="buttons">
         <button onClick={checkBlkWh}>Small Time DJ</button>
         <button onClick={tr2Purp}>Party DJ</button>
         <button onClick={blBlu}>Professional DJ</button>
