@@ -28,6 +28,13 @@ import memesData from '../memesData';
      * correct way.
      */
    
+/** * Challenge: 
+     * 1. Set up the text inputs to save to
+     *    the `topText` and `bottomText` state variables.
+     * 2. Replace the hard-coded text on the image with
+     *    the text being saved to state.
+     */
+     
    export default function Meme() {
     // const [memeImage, seMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg")
 
@@ -54,6 +61,14 @@ import memesData from '../memesData';
         }))
     }
 
+    function handleChange(event){
+        const {name, value} = event.target
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
+
     return (
         <main>
             <div className='form'>
@@ -61,11 +76,17 @@ import memesData from '../memesData';
                     type="text"
                     placeholder='Top Text'
                     className='form--input'
+                    name="topText"
+                    value={meme.topText}
+                    onChange={handleChange}
                 />
                 <input
                     type="text"
                     placeholder='Bottom Text'
                     className='form--input'
+                    name="bottomText"
+                    value={meme.bottomText}
+                    onChange={handleChange}
                 />
                 <button
                     className='form--button'
@@ -74,9 +95,11 @@ import memesData from '../memesData';
                     Get a new meme image 🖼
                 </button>
             </div>
-            <div>
+            <div className='meme'> 
                 {/* <img src={memeImage} className='meme--image'/> */}
                 <img src={meme.randomImage} className='meme--image'/>
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
             
         </main>
