@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+}
+
+form {
+  margin: 0 auto;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 80%;
+  max-height: 500px;
+}
+
+.format--column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.format--row {
+  gap: 20px;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+}
+
+.form--input {
+  margin-top: 20px;
+  height: 25px;
+  padding-right: 5px;
+  justify-content: space-between;
+}
+
+textarea {
+  width: 95%;
+  height: 175px;
+  resize: none;
+  margin-top: 50px;
+}
+
+.form--bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.badges {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  overflow-y: scroll;
+  scrollbar-width: 20px;
+  height: 500px;
+}
+
+header {
+  margin: 0 0 0 0;
+  color: white;
+  text-align: left;
+  background-color: gray;
+  width: 100%;
+}
+
+button {
+  margin: 10px 0 5px 0;
+  display: inline;
+  align-self: center;
+  width: 100px;
+}
+.badge {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.badge--list {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.background {
+  text-align: left;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 95%;
+  height: 175px;
+  resize: none;
+  margin-bottom: 25px;
+}
+.format--column {
+  text-align: start;
+}
