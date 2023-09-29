@@ -1,0 +1,5 @@
+.box {
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px dotted #808080
+}
