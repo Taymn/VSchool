@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import FriendsList from './components/FriendsList'
-import Friend from './components/Friend'
 
 function App() {
 
@@ -13,16 +11,3 @@ function App() {
 
 export default App
 
-/*
-
-const data = []
-
-App
-  component1
-
-
-
-
-
-
-*/
