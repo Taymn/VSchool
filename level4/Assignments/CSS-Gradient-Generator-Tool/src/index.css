@@ -1,0 +1,90 @@
+html {
+  margin: 0 auto;
+}
+
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+.boxes {
+  display: flex;
+}
+
+/* Gradient Box */
+.preview {
+  margin: 0 auto;
+  border: solid 1px black;
+  width: 100%;
+  height: 55%;
+}
+
+textarea {
+  resize: none;
+  width: 99.4%;
+  height: 40%;
+  margin-top: 5px;
+  color: rgb(199, 8, 8);
+  background-color: gray;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.callout {
+  border: solid 1px black;
+  border-radius: 3px;
+  padding: 10px;
+  width: 50vw;
+  height: 50vh;
+  margin-top: 10px;
+}
+
+/* Options Box */
+.options {
+  border: solid 1px black;
+  border-radius: 3px;
+  padding: 10px;
+  width: 50vw;
+  height: 50vh;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.options>h4 {
+  font-size: larger;
+  font-weight: bold;
+  margin: 0;
+}
+
+.input-color {
+  width: 8rem;
+  height: 2rem;
+}
+
+.color1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.color2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.input-angle {
+  width: 2.4rem;
+  height: 1rem;
+  margin-left: 10px;
+}
+
+.angle {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+h5 {
+  margin-left: 20px;
+}

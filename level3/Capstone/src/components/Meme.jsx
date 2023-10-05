@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 
 export default function Meme(props) {
 
-  const { meme, index, edit, handleDelete } = props
+        
+  const { meme, index, edit, setSavedMeme } = props
   // console.log(index)
   const [toggle, setToggle] = useState(false)
   function handleToggle() {
@@ -14,20 +15,38 @@ export default function Meme(props) {
     bottomText: meme.bottomText,
     url: meme.url
   })
+  
+  function handleEdit(memeIndex, update) {
+    console.log('handleEdit func', 'edits',update)
+    setSavedMeme(prevMemes => prevMemes.map((meme, index) => meme.id !== memeIndex ? meme : update ))
+  }
+  
+  function handleDelete (memeIndex) {
+    console.log('inside handleDelete', memeIndex)
+    // setSavedMeme(prevMemes => prevMemes.filter((meme,index) => index !== memeIndex))
+    setSavedMeme(preSavedMeme => {
+      return [...preSavedMeme.filter(item => item !== preSavedMeme[index])]
+  })
+  // setEdits("")
+  }
+
+
 
   function handleChange(e) {
     const { name, value } = e.target
-    setEdits(prevEdits => {
+    console.log('name', name, 'value', value)
+    setEdits(prevState=>{
       return {
-        ...prevEdits,
-        [name]: value
+          ...prevState,
+          [name]:value
+          
       }
-    })
-  }
-
+  })}
+console.log(index)
   function handleSubmit(e){
+    console.log('handleSubmit func', 'edits:', edits)
     e.preventDefault()
-    edit(index, edits)
+    handleEdit(meme.id, edits)
     handleToggle()
   }
 
@@ -69,7 +88,7 @@ export default function Meme(props) {
             onChange={handleChange}
           />
           <button onClick={handleToggle}>Cancel</button>
-          <button type="submit">Save</button>
+          <button>Save</button>
         </form>
       }
     </>

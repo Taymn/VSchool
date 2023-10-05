@@ -12,22 +12,15 @@ function App() {
         <Meme 
         meme = {meme}
         index = {index}
-        edit = {handleEdit}
-        handleDelete = {handleDelete}
+        // edit = {handleEdit}
+        // handleDelete = {handleDelete}
+        setSavedMeme = {setSavedMeme}
         />
     )
   })
-  function handleEdit(memeIndex, update) {
-    // console.log(update)
-    setSavedMeme(prevMemes => prevMemes.map((meme, index) => index !== memeIndex ? meme : update ))
-  }
-  
-  function handleDelete (memeIndex) {
-    setSavedMeme(prevMemes => prevMemes.filter((meme,index) => index !== memeIndex))
-  }
+ 
 
-
-  // console.log(savedMeme)
+  console.log(savedMeme)
   return (
     <div className='App'>
       <Header />

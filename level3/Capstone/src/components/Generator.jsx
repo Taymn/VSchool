@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 // 1) create function
 function Meme(props) {
 
     const { setSavedMeme } = props
-
+    const [count, setCount] = useState(1)
     //5) Make initial state for 1st meme
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
-        url: "https://static.tvtropes.org/pmwiki/pub/images/one_does_not_simply.jpg"
-
+        url: "", 
+        id: uuidv4()
+        
     });
 
     // 6) Make state for all created memes
@@ -37,6 +39,12 @@ function Meme(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setMeme(prev => {
+            return {
+                ...prev,
+                id:uuidv4()
+            }
+        })
         console.log("Meme Saved")
         setSavedMeme(prevSavedMeme => {
             return [
@@ -45,14 +53,14 @@ function Meme(props) {
             ]
         })
     }
-
-    //9) Ceate useState to call random meme when site starts
-    // useEffect(() => {
-    //     fetch("https://api.imgflip.com/get_memes")
-    //     .then(res => res.json())
-    //     .then(data => setAllMemes(data.data.memes))
-    //     .catch(err => console.log(error))
-    // }, [])
+console.log(count)
+    // 9) Ceate useState to call random meme when site starts
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+        .catch(err => console.log(err))
+    }, [])
 
     React.useEffect(() => {
         async function getMemes() {
@@ -104,7 +112,7 @@ function Meme(props) {
                     Get a new meme image 🖼
                 </button>
                 <button
-                    type="submit"
+                    
                     className='submit-button'
                     >
                     Save Meme to List
