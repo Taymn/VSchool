@@ -1,0 +1,49 @@
+* {
+  text-align: center;
+  /* box-sizing: border-box;
+  border: 1px solid black; */
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.title > h4 {
+  margin:25px 75px 25px 75px;
+}
+.main {
+  padding-top: 10px;
+}
+.main > button {
+  margin: 100px 0 50px 0;
+  padding: 10px;
+}
+.footer {
+  padding: 10px;
+  margin: 0;
+}
+.light-theme {
+  background-color: #cfcfcf;
+  color: #000;
+}
+.light-theme > .title {
+  background-color: aqua;
+}
+.light-theme > .footer {
+  background-color: rgba(255, 255, 255, 0.76);
+}
+.dark-theme {
+  background-color: black;
+  color: #fff; 
+}
+.dark-theme > .footer {
+  background-color: #2e2e2e;
+}
+.dark-theme > div > h4 {
+  color: aqua;
+}
+.dark-theme > .main {
+  background-color: rgb(19, 19, 19);
+}
+.dark-theme > div > h1 {
+ color: orange;
+}
