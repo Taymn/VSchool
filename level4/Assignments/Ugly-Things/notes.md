@@ -29,15 +29,20 @@ Context is tough, so be prepared to spend some time on this project.
 
 You can choose to implement this assignment using all hooks or with class components
 
-## Plan
+## Plan/Sudo Code
 
 SP 309.75
 Ugly Things
+SP: 16
 
-    1.  Create a Form with 3 inputs & submit button
-    2.  Capture inputs and display from an array of objects
-    3.  Add delete and edit functionality to each object
-    4.  Pull data from Ugly Things API
+ 4SP   1.  Create a Form with 3 inputs & submit button
+            Title, Description, Image and Submit
+ 4SP   2.  Capture inputs and display from an array of objects
+            post request and get request
+ 4SP   3.  Pull data from Ugly Things API
+            able to post and get Ugly Things
+ 4SP   4.  Add delete and edit functionality to each object
+            
 
 10/09/23 I have completed step 1. I was using Name Badge as a guide.
-Step 2 broke my App.
+10/10/23 Able to add post requests and display items

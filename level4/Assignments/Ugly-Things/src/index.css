@@ -3,8 +3,20 @@ html {
   margin: 0 auto;
 }
 
+.App {
+  background-color: aquamarine;
+}
+
+form {
+  height: 20vh;
+}
+
 .submit--store {
-  box-sizing: content-box;
-  border: 1px dotted black;
-  height: auto;
+  margin: 0 auto;
+  padding-left: 30%;
+}
+
+.submit--store>img {
+  max-width: 50vw;
+  max-height: 40vw;
 }

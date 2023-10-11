@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Form from './components/Form'
-import { UglyContext } from './components/Context'
+import { uglyContext } from './components/Context'
 import { useContext } from 'react'
+import UglyThing from './components/UglyThing'
 
 function App() {
 
-  // const {
-  //   thingArray,
-  //   setThingArray
-  // } = useContext(UglyContext)
+  const {
+    thingArray, setThingArray, deleThing, editThing
+  } = useContext(uglyContext)
 
-  // const thingArray = thingArray.map((item, index => {
-  //   console.log(item.title)
-  //   return (
-  //     <Thing index={index} item={item} />
-  //   )
-  // }))
+  const thingsArray = thingArray.map((item => {
+    return (
+      <UglyThing
+        key={item._id}
+        {...item}
+        deleThing={deleThing}
+        editThing={editThing}
+      />
+    )
+  }))
 
   return (
     <>
-      <h1>Ugly Things</h1>
-      <Form
-        // thing={thing}
-        // setThings={setThing}
-      />
-      {/* <div className='uglyThings'>
-        {thing.length > 0 ? things : <></>}
-      </div> */}
-      {/* {things} */}
+      <div className='App'>
+        <h1>Ugly Things</h1>
+        <Form />
+      </div>
+      {thingArray && thingsArray}
     </>
   )
 }

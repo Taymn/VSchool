@@ -1,11 +1,11 @@
 // Inputs: img url, Title, Description and Submit
 
 import React from 'react';
-import{ UglyContext} from './Context'
+import { uglyContext } from './Context'
 import { useContext } from 'react';
 
 export default function Form(props) {
-    // const { thing, setThing } = useContext(UglyContext)
+
 
     const [form, setForm] = React.useState(
         {
@@ -14,6 +14,7 @@ export default function Form(props) {
             description: ''
         }
     )
+    const { postNewThing } = useContext(uglyContext)
 
     function handleChange(e) {
         setForm(prevForm => {
@@ -27,23 +28,19 @@ export default function Form(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(e.target)
-        setContext(prevContext =>
-            [
-                ...prevContext,
-                form
-            ]
-        )
-        setForm(
-            {
-                title: '',
-                imgUrl: '',
-                description: ''
-            }
-        )
-    }
+        postNewThing(form)
+            setForm(
+                {
+                    title: '',
+                    imgUrl: '',
+                    description: ''
+                }
+            )
+        }
+
 
     return (
+
         <form
             className='form'
             name='form'
@@ -82,7 +79,10 @@ export default function Form(props) {
             >
                 Submit
             </button>
-        
+
         </form>
+
+
+
     )
 }
