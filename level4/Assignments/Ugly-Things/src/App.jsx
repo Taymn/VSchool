@@ -7,7 +7,7 @@ import UglyThing from './components/UglyThing'
 function App() {
 
   const {
-    thingArray, setThingArray, deleThing, editThing
+    thingArray, deleThing, editThing
   } = useContext(uglyContext)
 
   const thingsArray = thingArray.map((item => {
