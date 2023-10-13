@@ -10,7 +10,7 @@ export default function Home() { //Step 2
 
         <h2>Home View - 1</h2>{/*Step 5*/}
       { <p>Lorem ipsum dolor sit amet, consectetur adip</p> } {/*Step 6*/} 
-       <button onClick={()=> navigate('/products')}>Go to Products</button> {/*NAV - Staep 3*/}
+       <button onClick={()=> navigate('/products')}>Go to Products</button> {/*NAV - Step 3*/}
        <button onClick={()=> navigate(-1)}>Go Back 1</button> {/*NAV - Staep 4*/}
        <button onClick={()=> navigate(1)}>Go Forward 1</button> {/*NAV - Staep 5*/}
        <button onClick={()=> navigate(2)}>Go Forward 2</button> {/*NAV - Staep 6*/}
