@@ -11,7 +11,7 @@ function MHContextProvider(props) {
         const response = await fetch("https://mhw-db.com/monsters")
         const monsters = await response.json()
         setMonsterContext(monsters)
-        console.log('monser call get all monsters:', monsters)
+        // console.log('monser call get all monsters:', monsters)
 
     }
 
@@ -19,12 +19,14 @@ function MHContextProvider(props) {
         const response = await fetch("https://mhw-db.com/weapons")
         const weapons = await response.json()
         setWeaponContext(weapons)
+        // console.log('weapon call get all weapons:', weaponContext)
     }
 
     async function armourGetter() {
         const response = await fetch("https://mhw-db.com/armor")
         const armour = await response.json()
         setArmourContext(armour)
+        console.log('armour call get all armour:', armour)
     }
 
     React.useEffect(() => {

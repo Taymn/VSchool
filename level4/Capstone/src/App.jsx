@@ -8,7 +8,7 @@ import Armour from './components/Armour'
 export default function App() {
 
   return (
-    <>
+    <div className='App'>
       <nav stylye={{ margin: 10 }}>
 
         <Link
@@ -34,22 +34,22 @@ export default function App() {
 
       </nav>
 
-      
+
 
       <Routes>
         <Route path='/' element={
           <Home />
         } />
-        <Route path='/monsters' 
-        element={<Monster />}
-           />
-        <Route path='/weapons' 
-        element={<Weapon />} 
+        <Route path='/monsters'
+          element={<Monster />}
         />
-        <Route path='/armour' 
-        element={<Armour />} 
+        <Route path='/weapons'
+          element={<Weapon />}
+        />
+        <Route path='/armour'
+          element={<Armour />}
         />
       </Routes>
-    </>
+    </div>
   )
 }

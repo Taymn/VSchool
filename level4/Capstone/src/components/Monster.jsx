@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MHContext } from './Context';
 
 export default function Monster() {
@@ -15,13 +15,13 @@ export default function Monster() {
             return item.type === type
         })
 
-        filteredItems.forEach((item,index) => {
-            if (item.type === type){
+        filteredItems.forEach((item, index) => {
+            if (item.type === type) {
                 arr.push(item)
             }
         })
 
-       return (filteredItems.map((item, index) => <div key={index}>{item.name}</div>))
+        return (filteredItems.map((item, index) => <div key={index}><a href=''>{item.name}</a></div>))
     }
 
     const monstersList = monsterContext.map(item => item.type)
@@ -31,13 +31,26 @@ export default function Monster() {
         let list = monsterList(monsterContext, item)
         return (<div><h3>{item} monster</h3>{monsterContext.length > 0 && list}</div>)
     })
-    
-    return (
-        <div style={{ padding: 20 }}>
 
-            <h2>Select Monster</h2>
-            <div className='list'>
-                {monsterSpeciesList}
+    return (
+        <div style={{ paddingBottom: 10 }}>
+            <button onClick={() => navigate('/')}>
+                Go Home
+            </button>
+            <button onClick={() => navigate(- 1)}>
+                Go Back
+            </button>
+            <button onClick={() => navigate(1)}>
+                Go Forward
+            </button>
+            <div className='home'>
+
+                <h1>
+                    Select Monster
+                </h1>
+                <div className='list'>
+                    {monsterSpeciesList}
+                </div>
             </div>
         </div>
     );

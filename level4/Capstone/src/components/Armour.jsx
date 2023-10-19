@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import {  useNavigate } from 'react-router-dom';
 import { MHContext } from './Context';
 
 export default function Armour() {
-    // console.log('armour get call armour:', armour)
     const navigate = useNavigate()
 
     const { armourContext } = React.useContext(MHContext)
@@ -27,8 +26,10 @@ export default function Armour() {
 
         })
 
+
         // return (filteredItems.map((item, index) => <div key={index}>{item.armorSet.name}</div>))
-        return (arr.map((item, index) => <div key={index}>{item.armorSet.name}</div>))
+        return (arr.map((item, index) => <div key={index}>
+            <a href=''>{item.armorSet.name}</a></div>))
     }
 
     const armorSetList = armourContext.map(item => item.armorSet.rank)
@@ -40,13 +41,24 @@ export default function Armour() {
     })
 
     return (
-        <div style={{ padding: 20 }}>
+         <div style={{paddingBottom: 10}}>
+            <button onClick={() => navigate('/')}>
+                Go Home
+            </button>
+            <button onClick={() => navigate(- 1)}>
+                Go Back
+            </button>
+            <button onClick={() => navigate(1)}>
+                Go Forward
+            </button>
+            <div className='home'>
 
-            <h2>Select Armour Set</h2>
-            <div className='list'>
-                {armorSetName}
+                <h1>Select Armour Set</h1>
+                <div className='list'>
+                    {armorSetName}
+                </div>
+
             </div>
-
-        </div>
+         </div>
     );
 }

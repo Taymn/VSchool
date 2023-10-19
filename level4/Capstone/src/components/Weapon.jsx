@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MHContext } from './Context';
 
 export default function Weapon() {
@@ -20,11 +20,16 @@ export default function Weapon() {
             }
         });
 
-        return (combinedFilteredItems.map((item, index) => <div key={index}>{item.name}</div>))
+        return (combinedFilteredItems.map((item, index) => <div key={index}><a href=''>{item.name}</a></div>))
     }
 
     const weaponTypeList = weaponContext.map(item => item.type)
     const uniqueWeaponList = [...new Set(weaponTypeList)]
+
+    // const weaponLists = uniqueWeaponList.map(item => {
+    //     let list = weaponList(weaponContext, item)
+    //     return (< div ><a href=''>{item}</a>{weaponContext.length > 0} </div >)
+    // })
 
     const weaponLists = uniqueWeaponList.map(item => {
         let list = weaponList(weaponContext, item)
@@ -32,11 +37,24 @@ export default function Weapon() {
     })
 
     return (
-        <div style={{ padding: 20 }}>
+        <div style={{paddingBottom: 10}}>
+            <button onClick={() => navigate('/')}>
+                Go Home
+            </button>
+            <button onClick={() => navigate(- 1)}>
+                Go Back
+            </button>
+            <button onClick={() => navigate(1)}>
+                Go Forward
+            </button>
+            <div className='home'>
 
-            <h2>Select Weapon Type</h2>
-            <div className='list'>
-                {weaponLists}
+                <h1>
+                    Select Weapon Type
+                </h1>
+                <div className='list'>
+                    {weaponLists}
+                </div>
             </div>
         </div>
     );

@@ -1,7 +1,36 @@
+.App {
+    align-items: center;
+    background-image: url('https://oyster.ignimgs.com/mediawiki/apis.ign.com/monster-hunter-world/e/e8/LargeMonsters.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 97vh;
+    overflow: auto;
+}
+
+.home {
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    display: flexbox;
+    flex-direction: column;
+    background-color: rgba(136, 143, 136, 0.5);
+    overflow: auto;
+}
+.img {
+    display: flex;
+    justify-content: space-between;
+}
 .list {
-    background: yellowgreen;
+    min-height: 75.6vh;
+    font-size: 30px;
+    font-style: normal;
+    font-family: 'Alumni Sans Collegiate One', sans-serif;    
+    background-color: rgba(136, 143, 136, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
+    margin: 0, auto;
 }
