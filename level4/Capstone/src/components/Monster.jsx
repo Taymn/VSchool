@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { MHContext } from './Context';
 
 export default function Monster() {
@@ -21,15 +21,15 @@ export default function Monster() {
             }
         })
 
-        return (filteredItems.map((item, index) => <div key={index}><a href=''>{item.name}</a></div>))
+        return (filteredItems.map((item, index) => <div key={index}><Link to={`/monsters/${item.id}`}>{item.name}</Link></div>))
     }
 
     const monstersList = monsterContext.map(item => item.type)
     const monsterNames = [...new Set(monstersList)]
 
-    const monsterSpeciesList = monsterNames.map(item => {
+    const monsterSpeciesList = monsterNames.map((item, index) => {
         let list = monsterList(monsterContext, item)
-        return (<div><h3>{item} monster</h3>{monsterContext.length > 0 && list}</div>)
+        return (<div key={index}><h3>{item} monster</h3>{monsterContext.length > 0 && list}</div>)
     })
 
     return (

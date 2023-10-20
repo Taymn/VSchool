@@ -13,6 +13,7 @@ export default function Weapon() {
         let combinedFilteredItems = array.filter((item) => {
             return item.type === type && !item.name.includes('2') && !item.name.includes('3');
         });
+        console.log('weapon call get all weapons:', combinedFilteredItems)
 
         combinedFilteredItems.forEach(item => {
             if (item.name.includes('1')) {
@@ -37,7 +38,7 @@ export default function Weapon() {
     })
 
     return (
-        <div style={{paddingBottom: 10}}>
+        <div style={{ paddingBottom: 10 }}>
             <button onClick={() => navigate('/')}>
                 Go Home
             </button>

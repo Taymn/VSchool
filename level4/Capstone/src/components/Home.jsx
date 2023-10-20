@@ -9,7 +9,7 @@ export default function Home() {
 
                 <h2>Level 4 Capstone</h2>
                 {<p>
-                    This MHW API App provides players the resouces needed for crafting by selecting monsters to find weapons and armours they can create from monster materials.
+                    This MHW API App provides users stats about Monsters, Weapons and Armour. 
                 </p>}
 
             </div>

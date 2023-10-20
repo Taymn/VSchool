@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Monster from './components/Monster'
 import Weapon from './components/Weapon'
 import Armour from './components/Armour'
+import MonsterDetails from './components/MonsterDetails'
 
 export default function App() {
 
@@ -48,7 +49,17 @@ export default function App() {
         />
         <Route path='/armour'
           element={<Armour />}
+          />
+        <Route path='monsters/:detail'
+          element={<MonsterDetails />}
         />
+        <Route path='armor/:detail'
+          element
+        />
+        <Route path='weapons/:detail'
+          element
+        />
+
       </Routes>
     </div>
   )
