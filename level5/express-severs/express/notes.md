@@ -6,7 +6,7 @@
 
 ## Vocabulary
     **Route**
-        * An event linster for http requests
+        * An event linstener for http requests
 
     **Endpoint**
         * "./item" "/user"
