@@ -29,17 +29,25 @@ app.post('/todos', (req, res) => {
     res.send(`successfully added ${newTodo.name} to database`)
 })
 
+// .get one
+app.get('/todos/:todoId', (req, res) => {
+    const todoId = req.params.todoId
+    const findTodoId = todos.find(todo => todo._id === todoId)
+    res.send(findTodoId)
+})
+
+
 //.put route
-app.put('/:todoId', (req, res) => {
+app.put('/todos/:todoId', (req, res) => {
     const todoId = req.params.todoId
     const updateObject = req.body
     const todoIndex = todos.findIndex(todos => todos._id === todoId)
-    const ubdatedTodo = Object.assign(todos[todoIndex], updateObject)
-    res.send(ubdatedTodo)
+    const updatedTodo = Object.assign(todos[todoIndex], updateObject)
+    res.send(updatedTodo)
 })
 
 //.delete route
-app.delete('/:todoId', (req, res) => {
+app.delete('/todos/:todoId', (req, res) => {
     const todoId = req.params.todoId
     const todoIndex = todos.findIndex(todos => todos._id === todoId)
     todos.splice(todoIndex, 1)

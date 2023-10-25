@@ -5,7 +5,7 @@ You are a bounty hunter of the Old Republic. Your parents were killed by a Sith 
 
 In order to help you in your quest, and since you are a do-it-yourself kind of bounty hunter, you have learned programming so you can keep track of your bounties and kills!
 
-# Objective
+## Objective
 
 Using Express, create an API on the `/bounty` route that:
 
@@ -43,3 +43,20 @@ After learning about `req.params`, now add endpoints that allow you to:
 - `PUT` (update) an existing bounty.
 
 You'll need to pass the `uuid` you added when `POST`ing new bounties as a URL Parameter to the endpoint in order to have a reference to the object you want to update or delete.
+
+# Objective for PART 3 - Client Setup
+
+For this part you will have to [set up a full stack React application](https://coursework.vschool.io/setting-up-a-full-stack-react-application/). Since you do not have a database yet, ignore the `/models` folder contained in the example. You instead will have something like `bountyData.js` which contains your data.
+
+You will now build a client-side React interface for the server you created!
+
+Your app should be a CRUD application - it should be able to: 
+
+- Create (POST) new bounties,
+- Read (GET) existing bounties and show them to the user of your site,
+- Update (PUT) existing bounties (e.g. if you wanted to up the price for a bounty), and
+- Destroy (DELETE) bounties from the list of all bounties.
+
+You will need to use everything you've learned about state management, HTTP, and forms!
+
+The design is up to you, so have fun with it!
