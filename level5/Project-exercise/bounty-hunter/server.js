@@ -1,44 +1,24 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const { v4: uuidv4 } = require('uuid')
-const bounties = require('./bountyData.js')
+const mongoose = require('mongoose')
 // Part 1 
 // Server setup & .get/.post routes
 
-//looks for request body => req.body
+// middleware (looks for request body => req.body)
 app.use(express.json())
 app.use(morgan('dev'))
 
+// database
+mongoose.connect("mongodb+srv://adamgt2003:Q5BWRLJEcXBee65Q@cluster0.mnr85c8.mongodb.net/", () => console.log('connected to database'))
 
-// .get route
-app.get('/api/bounties', (req, res) => {
-    res.send(bounties)
-})
+// route
+app.use('/api/bounties', require('./routes/bountyRouter.js'))
 
-//.post route
-app.post('/api/bounties', (req, res) => {
-    const newBounty = req.body
-    newBounty._id = uuidv4()
-    bounties.push(newBounty)
-    res.send(newBounty)
-})
-
-//.put route
-app.put('/api/bounties/:bountyId', (req, res) => {
-    const bountyId = req.params.bountyId
-    const updateObject = req.body
-    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
-    const ubdatedBounty = Object.assign(bounties[bountyIndex], updateObject)
-    res.send(ubdatedBounty)
-})
-
-//.delete route
-app.delete('/api/bounties/:bountyId', (req, res) => {
-    const bountyId = req.params.bountyId
-    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
-    bounties.splice(bountyIndex, 1)
-    res.send('Successfully deleted bounty!')
+// error handler
+app.use((err, req, res, next) => {
+    console.log(err)
+    return res.send({errMsg: err.message})
 })
 
 // server Listen

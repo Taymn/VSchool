@@ -1,4 +1,4 @@
-/*Forms Lesson 1*/
+ /*Forms Lesson 1*/
 const form = document["my-form"]
 
 /* Submit event */

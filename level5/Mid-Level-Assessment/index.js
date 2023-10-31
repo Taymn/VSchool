@@ -1,19 +1,23 @@
 function extractUniqueCharacters(strings) {
     // use Set to store unique chars
-    var uniqueCharacters = new Set()
-
+    // var uniqueCharacters = new Set()
+    var uniqueCharacters = []
     // Iterate through each word in the array
     for (let word of strings){
+        console.log(uniqueCharacters)
         // Split the word into chars and add to set
         for (let char of word) {
-            uniqueCharacters.add(char)
+            if(!uniqueCharacters.includes(char))
+            // uniqueCharacters.add(char)
+            uniqueCharacters.push(char)
         }
     }
 
     //Convert the set back to an array
-    let uniqueCharsArray = Array.from(uniqueCharacters)
+    // let uniqueCharsArray = Array.from(uniqueCharacters)
 
-    return uniqueCharsArray
+    // return uniqueCharsArray
+    return uniqueCharacters
 }
 
 const words = ['apple', 'banana', 'cherry'];
@@ -33,3 +37,12 @@ const people = [
 
 const sortedByAge = sortByProperty(people, 'age');
 console.log(sortedByAge);
+
+function table(num){
+    let table = []
+    for(let i = 1; i < 11; i++ ){
+        console.log(`${num} * ${i} = ${num * i}`)
+    }
+    return
+}
+console.log(table(7))
