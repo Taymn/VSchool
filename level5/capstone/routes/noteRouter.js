@@ -1,6 +1,6 @@
 const express = require('express')
 const noteRouter = express.Router()
-const Note = require('../models/note.jsx')
+const Note = require('../models/note')
 
 noteRouter.get('/', (req, res, next) => {
     Note.find((err, notes) => {
@@ -13,19 +13,21 @@ noteRouter.get('/', (req, res, next) => {
 })
 
 noteRouter.get('/:noteID', (req, res, next) => {
-    const noteID = req.params.noteID
-    const foundNote = notes.find(note => note._id === noteID);
-    if (!foundNote) {
-        const error = new Error(`The note with id ${noteID} was not found.`);
-        res.status(500)
-        return next(error)
-    }
-    res.status(200).send(foundNote);
-})
+    const noteID = req.params.noteID;
+
+    Note.findById(noteID, (err, foundNote) => {
+        if (!foundNote) {
+            const error = new Error(`The note with id ${noteID} was not found.`);
+            res.status(404);
+            return next(error);
+        }
+        res.status(200).send(foundNote);
+    });
+});
 
 
 noteRouter.post('/', (req, res, next) => {
-    const newNote = new Note(...req.body)
+    const newNote = new Note(req.body)
     newNote.save((err, savedNote) => {
         if (err) {
             res.status(500)
@@ -35,7 +37,7 @@ noteRouter.post('/', (req, res, next) => {
     })
 })
 
-noteRouter.put('/like/:noteID', (req, res, next) => {
+noteRouter.put('/likes/:noteID', (req, res, next) => {
     Note.findOneAndUpdate(
         { _id: req.params.noteID },
         { $inc: { likes: 1 } },
@@ -50,10 +52,27 @@ noteRouter.put('/like/:noteID', (req, res, next) => {
     )
 })
 
-noteRouter.put('/dislike/:noteID', (req, res, next) => {
+noteRouter.put('/dislikes/:noteID', (req, res, next) => {
     Note.findOneAndUpdate(
         { _id: req.params.noteID },
         { $inc: { dislikes: 1 } },
+        { new: true },
+        (err, updatedNote) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedNote)
+        }
+    )
+})
+
+noteRouter.put('/:noteID', (req, res, next) => {
+    const { title, tags, content, comments } = req.body
+    
+    Note.findOneAndUpdate(
+        { _id: req.params.noteID },
+        { title: title, tags: tags, content: content, comments: comments },
         { new: true },
         (err, updatedNote) => {
             if (err) {

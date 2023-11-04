@@ -7,10 +7,14 @@ const uri = 'mongodb+srv://adamgt2003:CjuOvLMHsZbEh2Wh@cluster0.cg9o0xo.mongodb.
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect(uri, console.log('Connected to the Database'))
+connectToDb().then(console.log("connected to database"))
+    .catch((err) => { throw err });
+async function connectToDb() {
+    mongoose.set('strictQuery', false)
+    await mongoose.connect(uri);
+}
 
-
-app.use('/notes', require('./routes/noteRouter.js'))
+app.use('/api/notes', require('./routes/noteRouter.js'))
 
 app.use((err, req, res, next) => {
     console.log(err)
