@@ -41,7 +41,8 @@ function CreateNote() {
             <div className='note'>
                 <h2>Note Preview</h2>
                 <h3>Title: {inputs.title}</h3>
-                <textarea defaultValue={inputs.content} />
+                <label style={{fontWeight: 600}}>Content:</label>
+                <textarea  defaultValue={inputs.content} disabled/>
                 <a>{inputs.tags}</a>
             </div>
         </>

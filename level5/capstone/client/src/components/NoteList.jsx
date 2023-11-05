@@ -11,20 +11,21 @@ export default function NoteList() {
   if (notes.length > 0) {
     noteTitle = notes.map((note) => {
       return (
-        <>
-          <Link to={`${note._id}`}>
-            <h3>Title: {note.title}</h3>
-          </Link>
-          <button onClick={() => deleteNote(note._id)}>Delete</button>
-        </>
+          <div className='note-container'>
+            <Link to={`${note._id}`}>
+              <h3>{note.title}</h3>
+            </Link>
+          <h4>{note.createdAt}</h4>
+            <button className='button' onClick={() => deleteNote(note._id)}>Delete</button>
+          </div>
       )
     })
   }
 
   return (
-    <div className='note-container'>
+    <>
       <h2>Note List</h2>
       {noteTitle}
-    </div>
+    </>
   )
 }

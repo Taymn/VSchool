@@ -19,21 +19,18 @@ function Note() {
                 <div className='note'>
                     <h2>{note.title}</h2>
                     <textarea defaultValue={note.content} />
-
+                    <a>{note.tags}</a>
                     {<h3 onClick={seeComment}> {viewComment ? 'Hide Comments' : 'Click to View Comments'}</h3>}
                     {
                         viewComment &&
                         <>
-                            <h5>{note.comments.map(note => note)}</h5>
+                            <p>{note.comments.map(note => note)}</p>
                             <div>
-                                <button>Likes: {note.likes}</button>
-                                <button>Dislikes: {note.dislikes}</button>
+                                <button disabled>Likes: {note.likes}</button>
+                                <button disabled>Dislikes: {note.dislikes}</button>
                             </div>
                         </>
                     }
-
-                    <a>{note.tags}</a>
-
                 </div>
 
             )
