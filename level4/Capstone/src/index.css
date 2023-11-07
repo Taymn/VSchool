@@ -14,13 +14,14 @@
     min-height: 94.3vh;
     font-style: normal;
     font-size: 30px;
-    display: flexbox;
+    display: flex;
     flex-direction: column;
     background-color: rgba(136, 143, 136, 0.5);
     overflow: auto;
 }
 .img {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .list {
