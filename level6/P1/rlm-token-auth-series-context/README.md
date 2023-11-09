@@ -1,5 +1,9 @@
 # rlm-token-auth-series-context
 
+npm install jsonwebtoken
+
+npm install dotenv
+
 npm install express-jwt
 
 ## Commands to clone the specific sections:
