@@ -1,5 +1,7 @@
 # rlm-token-auth-series-context
 
+npm install express-jwt
+
 ## Commands to clone the specific sections:
   ### Part 1 start:
     * git clone -b part-1-start https://github.com/v-school/rlm-token-auth-series-context.git
