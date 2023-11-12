@@ -7,7 +7,6 @@ const initInputs = { username: "", password: "" }
 export default function Auth(){
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
-
   const { signup, login } = useContext(UserContext)
 
   function handleChange(e){

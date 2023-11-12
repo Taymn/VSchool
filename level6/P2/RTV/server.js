@@ -11,9 +11,9 @@ app.use(morgan('dev'))
 
 mongoose.connect(url,console.log('Connected to the Database'))
 
-app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
-app.use('/api/rtv', require('./routes/rtvRouter.js'))
+app.use('/api', require('./routes/authRouter.js'))
+app.use('/api/auth', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
+app.use('/api/auth/issue', require('./routes/rtvRouter.js'))
 
 app.use((err, req, res, next) => {
     console.log(err)

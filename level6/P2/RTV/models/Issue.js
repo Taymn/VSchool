@@ -7,13 +7,15 @@ const issueSchema = new Schema({
         required: true
     },
     description: String,
-    vote: String,
-    total: String,
+    upVote: Number,
+    downVote: Number,
+    userVote: Array,
     user:{
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
+    comments: [String]
 })
 
 module.exports = mongoose.model('Issue', issueSchema)
