@@ -57,15 +57,15 @@ function UserProvider(props) {
         setUserState(null)
     }
 
-    // const [getAllIssues, setGetAllIssues] = useState([])
-    // function allIssues() {
-    //     userAxios.get('/api/issue/async')
-    //     .then(res => {
-    //         setGetAllIssues(res.data)
-    //     })
-    //     .catch(err => console.log(err.response.data.errMsg))
-    // }
-    // console.log(getAllIssues)
+    const [getAllIssues, setGetAllIssues] = useState([])
+    function allIssues() {
+        userAxios.get('/api/issue/async')
+        .then(res => {
+            setGetAllIssues(res.data)
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+    console.log(getAllIssues)
 
     function getUserIssues() {
         userAxios.get('/api/issue/user')

@@ -5,7 +5,6 @@ const initInputs = {
     description: '',
 }
 
-
 export default function IssueForm(props) {
     const [inputs, setInputs] = useState(initInputs)
     const { addIssue } = props

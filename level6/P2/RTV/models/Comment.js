@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
-const Schema= mongoose.Schema
+const Schema = mongoose.Schema
 
-const commentsSchema = new Schema({
+
+const commentSchema = new Schema({
     text: {
-        type: [String],
+        type: String,
     required: true
 },
 
@@ -18,4 +19,4 @@ const commentsSchema = new Schema({
         required: true
     }
 })
-module.exports = mongoose.model('Comments', commentsSchema)
+module.exports = mongoose.model('Comment', commentSchema)

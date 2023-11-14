@@ -9,14 +9,15 @@ export default function Profile() {
         user: {
             username
         },
+        // user,
         getUserIssues,
         addIssue,
         issues
     } = useContext(UserContext)
 
-    // useEffect(() => {
-    //     getUserIssues()
-    // }, [])
+    useEffect(() => {
+        getUserIssues()
+    }, [])
 
     return (
         <div className='profile'>
