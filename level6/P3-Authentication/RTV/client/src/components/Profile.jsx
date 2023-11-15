@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import IssueForm from './IssueForm.jsx'
 import IssueList from './IssueList.jsx'
-import Issue from './Issue'
 import { UserContext } from '../context/UserProvider.jsx';
 
 export default function Profile() {
@@ -9,7 +8,6 @@ export default function Profile() {
         user: {
             username
         },
-        // user,
         getUserIssues,
         addIssue,
         issues

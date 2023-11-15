@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { UserContext } from '../context/UserProvider'
+import IssueList from './IssueList'
 
 export default function Public() {
     const { getAllIssues, allIssues } = React.useContext(UserContext)
-    const displayData = getAllIssues.map((issues) => {
-        return (
-            <>
-                <h4> Title: {issues.title}</h4>
-                <p>{issues.description}</p>
-                {issues.comments.map(comment => {
-                    return(<p>{comment.text}</p>)
-                })}
-            </>
-        )
-    })
+ 
     useEffect(() => {
         allIssues()
     }, [])
+    
     return (
         <>
             <h3>All Issues</h3>
-            {displayData}
+            <IssueList issues={getAllIssues}/>
         </>
     )
 }

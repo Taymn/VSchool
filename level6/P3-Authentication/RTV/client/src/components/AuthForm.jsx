@@ -5,25 +5,23 @@ export default function AuthForm(props) {
         handleChange,
         handleSubmit,
         btnText,
-        // inputs: {
-        //     username,
-        //     password
-        // }
-        inputs,
-
+        inputs: {
+            username,
+            password
+        }
     } = props
 
     return (
         <form onSubmit={handleSubmit}>
             <input
             type='text'
-            value={inputs.username}
+            value={username}
             name='username'
             onChange={handleChange}
             placeholder='Username'/>
             <input
             type='text'
-            value={inputs.password}
+            value={password}
             name='password'
             onChange={handleChange}
             placeholder='Password' />

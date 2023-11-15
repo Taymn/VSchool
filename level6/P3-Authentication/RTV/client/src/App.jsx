@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Auth from './components/Auth.jsx'
@@ -8,7 +8,8 @@ import { UserContext } from './context/UserProvider.jsx'
 
 export default function App() {
   const { token, logout } = useContext(UserContext)
-  console.log('token',token)
+  // console.log('token',token)
+
   return (
     <div className='app'>
       <Navbar logout={logout}/>

@@ -58,6 +58,8 @@ function UserProvider(props) {
     }
 
     const [getAllIssues, setGetAllIssues] = useState([])
+    const [getAllComments, setGetAllComments] = useState([])
+    
     function allIssues() {
         userAxios.get('/api/issue/async')
         .then(res => {
@@ -65,14 +67,14 @@ function UserProvider(props) {
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
-    console.log(getAllIssues)
+    // console.log(getAllIssues)
 
     function getUserIssues() {
         userAxios.get('/api/issue/user')
             // .then(res => console.log(res.data))
             .then(res => {
                 setUserState(prevState => ({
-                    ...prevState,
+                    ...prevState, 
                     issues: res.data
                 }))
             })
@@ -104,6 +106,26 @@ function UserProvider(props) {
         .catch(err => console.log(err))
     }
 
+    function getAllComments() {
+        userAxios.get(`/api/comments/${issueId}`, {'text':newComment})
+        .then(res => {
+            setGetAllComments(res.data)
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    function postNewComment(newComment, issueId) {
+        // console.log({'text':newComment})
+        userAxios.post(`/api/comments/${issueId}`, {'text':newComment})
+            .then(res => {
+                allIssues()
+                console.log(res.data)
+                // Update the comments state with the new comment
+                // setComments(prev => [...prev, res.data]);
+            })
+            .catch(err => console.log(err));
+    }
+    
     return (
         <UserContext.Provider value={{
                 ...userState,
@@ -114,7 +136,9 @@ function UserProvider(props) {
                 getAllIssues,
                 allIssues,
                 deleteIssue,
-                getUserIssues
+                getUserIssues,
+                postNewComment,
+                getAllComments
             }}>
             {props.children}
         </UserContext.Provider>

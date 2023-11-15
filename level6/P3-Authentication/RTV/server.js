@@ -18,7 +18,7 @@ app.use('/api/comments', require('./routes/commentsRouter.js'))
 
 app.use((err, req, res, next) => {
     console.log(err)
-    if (err.name === 'Unauthorized') {
+    if (err.name === 'UnauthorizedError') {
         res.status(err.status)
     }
     return res.send({ errMsg: err.message })
