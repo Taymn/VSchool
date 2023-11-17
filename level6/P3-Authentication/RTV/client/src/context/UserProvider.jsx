@@ -15,7 +15,8 @@ function UserProvider(props) {
     const initState = {
         user: JSON.parse(localStorage.getItem('user')) || {},
         token: localStorage.getItem('token') || '',
-        issues: []
+        issues: [],
+        errMsg: ''
     }
 
     const [userState, setUserState] = useState(initState)
@@ -32,7 +33,7 @@ function UserProvider(props) {
                     token
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err.response.data.errMsg))
     }
 
     function login(credentials) {
@@ -48,13 +49,27 @@ function UserProvider(props) {
                     token
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err.response.data.errMsg))
     }
 
     function logout() {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setUserState(null)
+    }
+
+    function handleAuthErr(errMsg){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg
+        }))
+    }
+
+    function resetAuthErr(){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg: ''
+        }))
     }
 
     const [getAllIssues, setGetAllIssues] = useState([])
@@ -67,7 +82,7 @@ function UserProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-    // console.log(getAllIssues)
+    console.log(getAllIssues)
 
     function getUserIssues() {
         userAxios.get('/api/issue/user')
@@ -103,6 +118,7 @@ function UserProvider(props) {
                         issues: prevIssues.issues.filter(issue => issue._id !== issueId)
                     }
                 })
+                setGetAllIssues(prevIssues => prevIssues.filter(issue => issue._id !== issueId))
             })
             .catch(err => console.log(err))
     }
@@ -154,7 +170,8 @@ function UserProvider(props) {
             updateVote,
             downVote,
             upVotes,
-            downVotes
+            downVotes,
+            resetAuthErr
         }}>
             {props.children}
         </UserContext.Provider>

@@ -33,6 +33,7 @@ rtvRouter.get('/async', async (req, res, next) => {
 rtvRouter.get('/user', async(req, res, next) => {
     try{
         const userIssues = await Issue.find({user: req.auth._id})
+        console.log('USERISSUES',userIssues)
         const issuesWithComments = await Promise.all(userIssues.map(async issue => {
             const comments = await Comments.find({ issue: issue._id }).populate('user', '-password')
             return { ...issue.toObject(), comments }
@@ -68,7 +69,7 @@ rtvRouter.delete('/:issueId', (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            return res.status(200).send(`Successfully deleted issue: ${deletedIssue.title}`)
+            return res.status(200).send(`Successfully deleted issue: ${deletedIssue}`)
         }
     )
 })

@@ -4,28 +4,33 @@ import Navbar from './components/Navbar.jsx'
 import Auth from './components/Auth.jsx'
 import Profile from './components/Profile.jsx'
 import Public from './components/Public.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import { UserContext } from './context/UserProvider.jsx'
 
 export default function App() {
-  const { token, logout } = useContext(UserContext)
+  const { token, logout, user } = useContext(UserContext)
   // console.log('token',token)
 
   return (
     <div className='app'>
-      <Navbar logout={logout}/>
+      {token && <Navbar logout={logout} />}
       <Routes>
-        <Route 
+        <Route
           path='/'
-          element={ token ? <Navigate to='/profile'/> : <Auth />}
-          />
-        <Route 
+          element={token ? <Navigate to='/profile' /> : <Auth />}
+        />
+        <Route
           path='/profile'
-          element={token ? <Profile /> : <Navigate to='/'/>}
-          />
-        <Route 
+          element={<ProtectedRoute token={token} redirectTo='/'>
+            <Profile />
+          </ProtectedRoute>}
+        />
+        <Route
           path='/public'
-          element={token ? <Public /> : <Navigate to='/'/>}
-          />
+          element={<ProtectedRoute token={token} redirectTo='/'>
+            <Public />
+          </ProtectedRoute>}
+        />
       </Routes>
     </div>
   )

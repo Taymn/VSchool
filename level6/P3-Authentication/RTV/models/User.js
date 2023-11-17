@@ -36,7 +36,10 @@ userSchema.pre('save', function (next) {
   
   // method to check encrypted password on login
   userSchema.methods.checkPassword = function (passwordAttempt, callback) {
+    console.log('passwordAttempt', passwordAttempt)
+    console.log('password', this.password)
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
+      console.log('isMatch', isMatch)
       if (err) callback(err)
       return callback(null, isMatch)
     })

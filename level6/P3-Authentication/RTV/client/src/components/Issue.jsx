@@ -3,7 +3,7 @@ import { UserContext } from '../context/UserProvider'
 
 export default function Issue(props) {
     const { deleteIssue, postNewComment, updateVote, downVote:downVoteIssue } = useContext(UserContext)
-    const initInputs = { text: '' }
+    const initInputs = { comment: '' }
     const [ inputs, setInputs ] = useState(initInputs)
     const { title, description, upVote, downVote, _id, comments } = props
 
@@ -31,7 +31,7 @@ export default function Issue(props) {
                 <input
                     type='text'
                     name='comment'
-                    value={comment}
+                    value={inputs.comment}
                     onChange={handleChange}
                     placeholder='Comment'
                 />
