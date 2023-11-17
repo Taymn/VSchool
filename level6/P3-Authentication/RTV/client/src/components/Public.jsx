@@ -12,7 +12,7 @@ export default function Public() {
     return (
         <>
             <h3>All Issues</h3>
-            <IssueList issues={getAllIssues}/>
+            <IssueList issues={getAllIssues} publicc={true} />
         </>
     )
 }

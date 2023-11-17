@@ -25,7 +25,11 @@ const issueSchema = new Schema ({
     comments: [{
         type: Schema.Types.ObjectId,
         ref:'Comment'
-    }]
+    }],
+    datePosted: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 module.exports = mongoose.model('Issue', issueSchema)

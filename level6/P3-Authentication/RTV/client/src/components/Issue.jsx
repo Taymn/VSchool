@@ -2,7 +2,7 @@ import React, { useState,useContext } from 'react';
 import { UserContext } from '../context/UserProvider'
 
 export default function Issue(props) {
-    const { deleteIssue, postNewComment } = useContext(UserContext)
+    const { deleteIssue, postNewComment, updateVote, downVote:downVoteIssue } = useContext(UserContext)
     const initInputs = { text: '' }
     const [ inputs, setInputs ] = useState(initInputs)
     const { title, description, upVote, downVote, _id, comments } = props
@@ -15,7 +15,7 @@ export default function Issue(props) {
         ) )
     }
 
-    console.log('props',props)
+    // console.log('props',props)
     
     const { comment } = inputs
     return (
@@ -23,8 +23,8 @@ export default function Issue(props) {
             <h1>{title}</h1>
             <p>{description}</p>
             <>
-                <a>{upVote}</a>
-                <a>{downVote}</a>
+                <button onClick={() => updateVote(_id)}>upVote: {upVote.length}</button>
+                <button onClick={() => downVoteIssue(_id)}>downVote: {downVote.length}</button>
             </>
             <button onClick={() => deleteIssue(_id)}>Delete</button>
             <form onSubmit={(e) => {e.preventDefault(); postNewComment(comment, _id)}}>

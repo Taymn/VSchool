@@ -7,7 +7,6 @@ const commentSchema = new Schema({
         type: String,
     required: true
 },
-
     issue: {
         type: Schema.Types.ObjectId,
         ref:'Issue',
