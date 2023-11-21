@@ -1,4 +1,6 @@
 .home {
+    display: flex;
+    flex-direction: column ;
     width: 100%;
     align-items: center;
     font-family: "Arial", sans-serif;
@@ -25,7 +27,7 @@
   }
   
   .about .prompt {
-    width: 40%;
+    width: 50%;
     font-size: 30px;
   }
   .prompt svg {
@@ -56,9 +58,9 @@
     font-size: 20px;
   }
   
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     .about h2 {
-      font-size: 40px;
+      font-size: 45px;
     }
   
     .about .prompt {

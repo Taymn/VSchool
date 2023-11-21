@@ -9,12 +9,12 @@ function Footer() {
   return (
     <div className='footer'>
         <div className='socialMedia'>
-            <InstagramIcon />
+            {/* <InstagramIcon />
             <TwitterIcon />
-            <FacebookIcon />
-            <LinkedInIcon />
+            <FacebookIcon /> */}
+            {/* <LinkedInIcon /> */}
         </div>
-        <p>&copy; 2023 Adam Taylor</p>
+        <p style={{fontSize: 30}}>&copy; 2023 Adam Taylor</p>
     </div>
   )
 }
