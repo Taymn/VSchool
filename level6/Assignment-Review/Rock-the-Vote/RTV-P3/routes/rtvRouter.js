@@ -75,57 +75,54 @@ rtvRouter.delete('/:issueId', (req, res, next) => {
 })
 
 // Update Issue
-rtvRouter.put('/:issueId', (req, res, next) => {
-    Issue.findOneAndUpdate(
-        { _id: req.params.issueId, user: req.auth._id },
-        req.body,
-        { new: true },
-        (err, updatedIssue) => {
-            if (err) {
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201).send(updatedIssue)
-        }
-    )
+rtvRouter.put('/:issueId', async(req, res, next) => {
+    try{
+        const updatedIssue = await Issue.findOneAndUpdate({_id: req.params._id}, req.body, {new:true})
+        const comments = await Comments.find({issue: updatedIssue._id}).populate('user', '-password')
+        return res.status(201).send({...updatedIssue.toObject(), comments})
+    }catch(err){
+        res.status(500)
+        return next(err)
+    }
 })
 
-rtvRouter.put('/:issueId/upVote', (req, res, next) => {
-    Issue.findOneAndUpdate(
-        { _id: req.params.issueId },
-        {
-            $addToSet: {upVote: req.auth._id}, 
-            $pull: {downVote: req.auth._id}
-        }, 
-        {new: true},
-        (err, foundIssue) => {
-            if (err) {
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201). send(foundIssue)
-        }
-    )
-}
-)
+// Upvote
+rtvRouter.put('/:issueId/upVote', async (req, res, next) => {
+    try {
+        const updatedIssue = await Issue.findOneAndUpdate(
+            { _id: req.params.issueId },
+            {
+                $addToSet: { upVote: req.auth._id },
+                $pull: { downVote: req.auth._id },
+            },
+            { new: true }
+        );
+        const comments = await Comments.find({ issue: updatedIssue._id }).populate('user', '-password');
+        return res.status(201).send({ ...updatedIssue.toObject(), comments });
+    } catch (err) {
+        res.status(500);
+        return next(err);
+    }
+});
 
-rtvRouter.put('/:issueId/downVote', (req, res, next) => {
-    Issue.findOneAndUpdate(
-        { _id: req.params.issueId },
-        {
-            $pull: {upVote: req.auth._id}, 
-            $addToSet: {downVote: req.auth._id}
-        }, 
-        {new: true},
-        (err, foundIssue) => {
-            if (err) {
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201). send(foundIssue)
-        }
-    )
-})
+// Downvote
+rtvRouter.put('/:issueId/downVote', async (req, res, next) => {
+    try {
+        const updatedIssue = await Issue.findOneAndUpdate(
+            { _id: req.params.issueId },
+            {
+                $pull: { upVote: req.auth._id },
+                $addToSet: { downVote: req.auth._id },
+            },
+            { new: true }
+        );
+        const comments = await Comments.find({ issue: updatedIssue._id }).populate('user', '-password');
+        return res.status(201).send({ ...updatedIssue.toObject(), comments });
+    } catch (err) {
+        res.status(500);
+        return next(err);
+    }
+});
 
 rtvRouter.put('/:issueId/comments', (req, res, next) => {
     Issue.findOne({ _id: req.params.issueId }, (err, foundIssue) => {
