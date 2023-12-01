@@ -2,7 +2,7 @@ const express = require('express')
 const authRouter = express.Router()
 const User = require('../models/user.js')
 const jwt = require('jsonwebtoken')
-
+const { set } = require('mongoose')
 
 // Signup
 authRouter.post('/signup', (req, res, next) => {
@@ -41,7 +41,7 @@ authRouter.post('/login', (req, res, next) => {
         }
         user.checkPassword(req.body.password, (err, isMatch) => {
             if (err) {
-                res.status(403)
+                set.status(403)
                 return next(new Error('Username or Password are incorrect'))
             }
             if (!isMatch) {

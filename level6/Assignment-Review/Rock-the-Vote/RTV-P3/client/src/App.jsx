@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Auth from './components/Auth.jsx'
@@ -8,7 +8,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx'
 import { UserContext } from './context/UserProvider.jsx'
 
 export default function App() {
-  const { token, logout, user } = useContext(UserContext)
+  const { token, logout } = useContext(UserContext)
   // console.log('token',token)
 
   return (
