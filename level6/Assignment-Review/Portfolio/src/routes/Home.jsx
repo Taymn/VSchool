@@ -11,7 +11,7 @@ function Home() {
         <h2> Hi, my name is Adam</h2>
         <div className='prompt'>
           <p>A web developer with a passion for learning and solving problems.</p>
-          <a href='https://www.linkedin.com/in/adam-taylor-b0254a70/' target='_blank'>
+          <a href='https://www.linkedin.com/in/adam-taylor-junior-web-deveolper/' target='_blank'>
             <LinkedInIcon />
           </a>
           <a>

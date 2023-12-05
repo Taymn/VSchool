@@ -80,7 +80,7 @@ function Experience() {
             VSchool Technical School, Salt Lake City, Utah
           </h3>
           <h4 className="vertical-timeline-element-subtitle">
-            Certification
+            Certifcate of Completion
           </h4>
           <p>Full Stack Web Development</p>
         </VerticalTimelineElement>
